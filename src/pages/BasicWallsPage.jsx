@@ -4,6 +4,7 @@ import GuideImage from '../components/article/GuideImage'
 import GuideNote from '../components/article/GuideNote'
 import Key from '../components/article/Key'
 import OnThisPage from '../components/article/OnThisPage'
+import publicAsset from '../utils/publicAsset'
 import './GuidePage.css'
 
 function BasicWallsPage() {
@@ -27,7 +28,7 @@ function BasicWallsPage() {
     return (
         <article className="guide-page article-width">
             <GuideHeader
-                avatar="/avatars/smellbow.png"
+                avatar={publicAsset('avatars/smellbow.png')}
                 category="Mapping basics"
                 title="Floors, walls and half walls"
                 summary="Learn how Wizordum’s core building pieces can be combined to make detailed rooms, columns, alcoves, floors, and ceilings."
@@ -44,7 +45,9 @@ function BasicWallsPage() {
                     pieces can be combined to create surprisingly intricate layouts.
                 </p>
                 <GuideImage
-                    src="/guides/basic-walls/block-types1.png"
+                    src={publicAsset(
+                        'guides/basic-walls/block-types1.png',
+                    )}
                     alt="The available wall types shown inside the Wizordum editor"
                     caption="The editor provides several wall shapes that can be combined."
                     dimensions="1200 × 900 px"
