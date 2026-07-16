@@ -8,7 +8,7 @@ const navigationGroups = [
       },
       {
         label: 'Transparent textures',
-        to: '/guides/transparent-textures',
+        to: '/guides/Transparant-Texture',
       },
       {
         label: 'Cut and paste',

@@ -26,6 +26,26 @@
         gap: var(--space-4);
     }
 
+    .guide-page section :where(ul, ol) {
+        display: grid;
+        gap: var(--space-2);
+        padding-left: var(--space-5);
+        color: var(--color-text-muted);
+    }
+
+    .guide-page section ul {
+        list-style: disc;
+    }
+
+    .guide-page section ol {
+        list-style: decimal;
+    }
+
+    .guide-page section li::marker {
+        color: var(--color-accent);
+        font-weight: 800;
+    }
+
     @media (max-width: 38rem) {
         .guide-image-grid {
             grid-template-columns: 1fr;

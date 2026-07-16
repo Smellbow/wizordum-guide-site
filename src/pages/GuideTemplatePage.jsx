@@ -4,6 +4,7 @@ import GuideNote from '../components/article/GuideNote'
 import Key from '../components/article/Key'
 import OnThisPage from '../components/article/OnThisPage'
 import useDocumentTitle from '../hooks/useDocumentTitle'
+import publicAsset from '../utils/publicAsset'
 import './GuidePage.css'
 
 function GuideTemplatePage() {
@@ -27,7 +28,7 @@ function GuideTemplatePage() {
     return (
         <article className="guide-page article-width">
             <GuideHeader
-                avatar=""
+                avatar={publicAsset('avatars/smellbow.png')}
                 category="Guide category"
                 title="A clear, descriptive guide title"
                 summary="Write one or two sentences explaining what the reader will learn and why the technique is useful."

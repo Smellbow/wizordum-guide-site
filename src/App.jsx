@@ -8,6 +8,7 @@ import NotFoundPage from './pages/NotFoundPage'
 import BasicWallsPage from './pages/BasicWallsPage'
 import ComingSoonPage from './pages/ComingSoonPage'
 import GuideTemplatePage from './pages/GuideTemplatePage'
+import TransparantTexture from './pages/TransparantTexture'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="contribute" element={<ContributePage />} />
         <Route path="credits" element={<CreditsPage />} />
         <Route path="guides/basic-walls" element={<BasicWallsPage />} />
+        <Route path="guides/Transparant-Texture" element={<TransparantTexture />} />
         <Route
           path="guides/:guideSlug"
           element={<ComingSoonPage />}
