@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import Navigation from '../navigation/Navigation'
 import ThemeToggle from '../theme/ThemeToggle'
 import useTheme from '../../hooks/useTheme'
+import publicAsset from '../../utils/publicAsset'
 import './Header.css'
 
 function Header() {
@@ -39,9 +40,13 @@ function Header() {
                     aria-label="Wizordum Mapping Guide home"
                     onClick={() => setMenuOpen(false)}
                 >
-                    <span className="brand-mark" aria-hidden="true">
-                        W
-                    </span>
+                    <img
+                        className="brand-mark"
+                        src={publicAsset('decor/wizicon.jpg')}
+                        alt=""
+                        width="36"
+                        height="36"
+                    />
                     <span>Mapping Guide</span>
                 </Link>
 

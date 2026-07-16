@@ -23,14 +23,14 @@ npm run preview
 
 ## How rendering works
 
-`src/main.jsx` mounts React and wraps the application in `BrowserRouter`.
+`src/main.jsx` mounts React and wraps the application in `HashRouter`.
 `src/App.jsx` defines the available routes. Route pages render inside the
 `Outlet` found in `AppLayout`.
 
 ```text
 Browser URL
     ↓
-BrowserRouter observes the location
+HashRouter observes the URL hash
     ↓
 Routes selects the matching Route
     ↓
@@ -42,11 +42,11 @@ The selected page renders inside Outlet
 Examples:
 
 ```text
-/                           → HomePage
-/resources                  → ResourcesPage
-/guides/basic-walls         → BasicWallsPage
-/guides/teleports           → ComingSoonPage
-/guide-template             → GuideTemplatePage
+#/                          → HomePage
+#/resources                 → ResourcesPage
+#/guides/basic-walls        → BasicWallsPage
+#/guides/teleports          → ComingSoonPage
+#/guide-template            → GuideTemplatePage
 ```
 
 The route below contains a dynamic parameter:
@@ -55,7 +55,7 @@ The route below contains a dynamic parameter:
 <Route path="guides/:guideSlug" />
 ```
 
-For `/guides/teleports`, React Router makes `guideSlug` available through:
+For `#/guides/teleports`, React Router makes `guideSlug` available through:
 
 ```jsx
 const { guideSlug } = useParams()
@@ -83,7 +83,7 @@ src/
 
 ## Creating a guide
 
-Use `/guide-template` as the visual reference and
+Use `#/guide-template` as the visual reference and
 `src/pages/GuideTemplatePage.jsx` as the starter source.
 
 1. Copy `GuideTemplatePage.jsx`.
@@ -118,15 +118,31 @@ Store guide images under a descriptive public path:
 public/guides/basic-walls/wall-types.png
 ```
 
-Use a root-relative source:
+Import `publicAsset` and use it for files in `public`. The helper removes any
+leading slash from the supplied path and prefixes it with Vite's
+`import.meta.env.BASE_URL`:
 
 ```jsx
+import publicAsset from '../utils/publicAsset'
+
 <GuideImage
-  src="/guides/basic-walls/wall-types.png"
+  src={publicAsset('guides/basic-walls/wall-types.png')}
   alt="The wall types available in the editor"
   caption="Wall pieces available from the block selection menu."
 />
 ```
+
+This is also required for other public assets, such as author avatars:
+
+```jsx
+<GuideHeader avatar={publicAsset('avatars/author-name.png')} />
+```
+
+Vite sets `BASE_URL` from the `base` option in `vite.config.js`. The production
+base is `/wizordum-guide-site/`, while Vite supplies the appropriate base during
+local development. Do not hard-code root-relative public paths such as
+`/guides/...`; they would point at the domain root instead of the GitHub Pages
+project path after deployment.
 
 Real images support click-to-enlarge behaviour through a native dialog.
 
@@ -222,8 +238,15 @@ GSAP handles optional presentation effects.
 
 ## Deployment note
 
-The site uses clean browser routes. A static host must rewrite unknown requests
-to `index.html`, allowing React Router to interpret paths such as
-`/guides/basic-walls`.
+The site is deployed to GitHub Pages by `.github/workflows/deploy.yml`. A push to
+`main` (or a manual workflow dispatch) installs dependencies with `npm ci`, runs
+the Vite production build, uploads `dist`, and deploys it with the official
+GitHub Pages actions. The workflow uses the `github-pages` environment and
+publishes the deployment URL reported by GitHub Pages.
 
-The exact rewrite configuration depends on the hosting provider selected later.
+Vite builds the site under `/wizordum-guide-site/`, and `HashRouter` keeps the
+client-side route after `#` (for example,
+`/wizordum-guide-site/#/guides/basic-walls`). Because the server only receives
+the path before the hash, GitHub Pages does not need rewrite rules for React
+Router routes. Public asset URLs use the same project base through
+`import.meta.env.BASE_URL` and `publicAsset`.
