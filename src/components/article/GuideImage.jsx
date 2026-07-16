@@ -7,6 +7,7 @@ function GuideImage({
     caption,
     dimensions = '1600 × 900 px',
     ratio = '16 / 9',
+    maxWidth,
 }) {
     const dialogRef = useRef(null)
 
@@ -15,7 +16,14 @@ function GuideImage({
     }
 
     return (
-        <figure className="guide-figure">
+        <figure
+            className="guide-figure"
+            style={
+                maxWidth
+                    ? { '--guide-image-max-width': maxWidth }
+                    : undefined
+            }
+        >
             {src ? (
                 <>
                     <button

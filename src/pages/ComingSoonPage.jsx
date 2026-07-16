@@ -3,7 +3,7 @@ import navigationGroups from '../data/navigation'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 
 function ComingSoonPage() {
-    const { guideSlug } = useParams()
+    const { guideSlug } = useParams() // get the guideSlug from the URL parameters in the route from react router
     const expectedPath = `/guides/${guideSlug}`
 
     const guide = navigationGroups

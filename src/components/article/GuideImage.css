@@ -1,8 +1,10 @@
 @layer components {
     .guide-figure {
         display: grid;
+        width: min(100%, var(--guide-image-max-width, 100%));
         gap: var(--space-3);
         margin-block: var(--space-6);
+        margin-inline: auto;
     }
 
     .guide-image,

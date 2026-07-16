@@ -179,6 +179,19 @@ project path after deployment.
 
 Real images support click-to-enlarge behaviour through a native dialog.
 
+Images fill the available article width by default. Use the optional
+`maxWidth` prop for screenshots that are clearer at a smaller size. The figure
+remains responsive and centred, so it will still shrink on narrow screens:
+
+```jsx
+<GuideImage
+  src={publicAsset('guides/interface/layer-controls.png')}
+  alt="The layer controls in the editor interface"
+  caption="Layer controls."
+  maxWidth="28rem"
+/>
+```
+
 If an image is not ready, omit `src`:
 
 ```jsx
