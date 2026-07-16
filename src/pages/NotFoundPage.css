@@ -1,0 +1,50 @@
+@layer components {
+    .not-found-page {
+        display: grid;
+        justify-items: center;
+        gap: var(--space-7);
+        padding-block: var(--space-7);
+        text-align: center;
+    }
+
+    .not-found-code {
+        margin-bottom: 10rem;
+        color: var(--color-accent);
+        font-weight: 800;
+        font-size: 2rem;
+        justify-self: center;
+    }
+
+    .not-found-creature {
+        width: min(100%, 20rem);
+        height: auto;
+        border-radius: 40%;
+
+        text-align: center;
+        justify-self: center;
+    }
+
+    .not-found-title,
+    .not-found-message {
+        margin: 0;
+        justify-self: center;
+    }
+
+    .not-found-link {
+
+        display: inline-flex;
+        justify-self: center;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        padding: var(--space-3) var(--space-4);
+        border-radius: var(--radius-medium);
+        background: var(--color-accent);
+        color: var(--color-on-accent);
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+
+    }
+
+}
