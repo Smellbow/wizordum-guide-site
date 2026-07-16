@@ -10,7 +10,7 @@ gsap.registerPlugin(useGSAP)
 
 function AppLayout() {
     const mainRef = useRef(null)
-    const { pathname } = useLocation()
+    const { pathname, hash } = useLocation()
     const previousPathRef = useRef(pathname)
 
     useEffect(() => {
@@ -32,6 +32,20 @@ function AppLayout() {
             preventScroll: true,
         })
     }, [pathname])
+
+    useEffect(() => {
+        if (!hash) {
+            return
+        }
+
+        const sectionId = hash.slice(1)
+        const section = document.getElementById(sectionId)
+
+        section?.scrollIntoView({
+            behavior: 'auto',
+            block: 'start',
+        })
+    }, [hash])
 
     useGSAP(
         () => {
