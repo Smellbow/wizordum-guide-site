@@ -49,7 +49,7 @@
   --color-warning: var(--edg-salmon);
 
   /* Typography */
-  --font-display: Georgia, 'Times New Roman', serif;
+  --font-display: Roboto, Arial, sans-serif;
   --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
 
   /* Spacing */
@@ -72,6 +72,7 @@
   /* Effects */
   --shadow-raised: 0 0.75rem 2rem rgb(24 20 37 / 35%);
 }
+
 :root[data-theme='light'] {
   color-scheme: light;
 
