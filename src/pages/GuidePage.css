@@ -1,0 +1,34 @@
+@layer components {
+    .guide-page {
+        display: grid;
+        gap: var(--space-7);
+    }
+
+    .guide-page section {
+        scroll-margin-top: 7rem;
+    }
+
+    .guide-page section>*+* {
+        margin-top: var(--space-4);
+    }
+
+    .guide-page section>p {
+        color: var(--color-text-muted);
+    }
+
+    .guide-page section>h3 {
+        margin-top: var(--space-7);
+    }
+
+    .guide-image-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-4);
+    }
+
+    @media (max-width: 38rem) {
+        .guide-image-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}

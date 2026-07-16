@@ -1,0 +1,27 @@
+@layer components {
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    width: min(calc(100% - 2rem), var(--page-width));
+    margin-inline: auto;
+    padding-block: var(--space-5);
+    gap: var(--space-4);
+  }
+
+  .footer-inner nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 40rem) {
+    .footer-inner {
+      flex-direction: column;
+    }
+  }
+}

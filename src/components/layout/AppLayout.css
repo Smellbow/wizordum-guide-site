@@ -1,0 +1,31 @@
+@layer layout {
+  .site-shell {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  .site-main {
+    min-width: 0;
+    padding-block: clamp(2.5rem, 7vw, 6rem);
+  }
+
+  .site-main:focus {
+    outline: none;
+  }
+/* skip link is positioned at the top-left corner */
+  .skip-link { 
+    position: fixed;
+    z-index: 100;
+    inset: 0.75rem auto auto 0.75rem;
+    padding: 0.65rem 1rem;
+    transform: translateY(-200%);
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    font-weight: 800;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+}

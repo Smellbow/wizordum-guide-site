@@ -1,0 +1,91 @@
+:root {
+  /* Endesga 32 — primitive colour tokens */
+  --edg-red-earth: #be4a2f;
+  --edg-orange-clay: #d77643;
+  --edg-parchment: #ead4aa;
+  --edg-sand: #e4a672;
+  --edg-brown-light: #b86f50;
+  --edg-brown: #733e39;
+  --edg-plum-dark: #3e2731;
+  --edg-red-dark: #a22633;
+  --edg-red: #e43b44;
+  --edg-orange: #f77622;
+  --edg-gold: #feae34;
+  --edg-yellow: #fee761;
+  --edg-green: #63c74d;
+  --edg-green-mid: #3e8948;
+  --edg-green-dark: #265c42;
+  --edg-teal-dark: #193c3e;
+  --edg-blue-dark: #124e89;
+  --edg-blue: #0099db;
+  --edg-cyan: #2ce8f5;
+  --edg-white: #ffffff;
+  --edg-grey-light: #c0cbdc;
+  --edg-grey: #8b9bb4;
+  --edg-slate: #5a6988;
+  --edg-indigo: #3a4466;
+  --edg-navy: #262b44;
+  --edg-ink: #181425;
+  --edg-pink-bright: #ff0044;
+  --edg-purple: #68386c;
+  --edg-pink: #b55088;
+  --edg-salmon: #f6757a;
+  --edg-peach: #e8b796;
+  --edg-tan: #c28569;
+
+  /* Dark-theme semantic tokens */
+  color-scheme: dark;
+
+  --color-background: var(--edg-ink);
+  --color-surface: var(--edg-navy);
+  --color-surface-raised: var(--edg-indigo);
+  --color-text: var(--edg-white);
+  --color-text-muted: var(--edg-grey-light);
+  --color-border: var(--edg-slate);
+  --color-accent: var(--edg-yellow);
+  --color-accent-strong: var(--edg-gold);
+  --color-on-accent: var(--edg-ink);
+  --color-focus: var(--edg-cyan);
+  --color-warning: var(--edg-salmon);
+
+  /* Typography */
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  /* Shape and sizing */
+  --radius-small: 0.25rem;
+  --radius-medium: 0.5rem;
+  --radius-large: 1rem;
+  --page-width: 75rem;
+  --article-width: 52rem;
+
+  /* Effects */
+  --shadow-raised: 0 0.75rem 2rem rgb(24 20 37 / 35%);
+}
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --color-background: var(--edg-parchment);
+  --color-surface: var(--edg-white);
+  --color-surface-raised: var(--edg-peach);
+  --color-text: var(--edg-ink);
+  --color-text-muted: var(--edg-indigo);
+  --color-border: var(--edg-brown);
+  --color-accent: var(--edg-blue-dark);
+  --color-accent-strong: var(--edg-teal-dark);
+  --color-on-accent: var(--edg-white);
+  --color-focus: var(--edg-blue-dark);
+  --color-warning: var(--edg-red-dark);
+
+  --shadow-raised: 0 0.75rem 2rem rgb(62 39 49 / 18%);
+}

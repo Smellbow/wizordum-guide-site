@@ -1,0 +1,93 @@
+@layer components {
+    .site-header {
+        position: sticky;
+        z-index: 20;
+        top: 0;
+        border-bottom: 1px solid var(--color-border);
+        background: var(--color-background);
+    }
+
+    .header-inner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: min(calc(100% - 2rem), var(--page-width));
+        min-height: 4.5rem;
+        margin-inline: auto;
+        gap: var(--space-4);
+    }
+
+    .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-3);
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        font-weight: 800;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .brand-mark {
+        display: grid;
+        width: 2.25rem;
+        aspect-ratio: 1;
+        place-items: center;
+        background: var(--color-accent);
+        color: var(--color-on-accent);
+        clip-path: polygon(50% 0,
+                100% 25%,
+                88% 100%,
+                12% 100%,
+                0 25%);
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+    }
+
+    .menu-toggle {
+        display: none;
+        min-height: 2.75rem;
+        padding: 0.5rem 0.75rem;
+        align-items: center;
+        gap: var(--space-2);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-small);
+        background: var(--color-surface);
+        color: var(--color-text);
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .menu-toggle:hover {
+        background: var(--color-surface-raised);
+    }
+
+    @media (max-width: 60rem) {
+        .menu-toggle {
+            display: inline-flex;
+        }
+
+        .header-actions {
+            position: absolute;
+            top: calc(100% + 1px);
+            right: -1rem;
+            left: -1rem;
+            display: none;
+            max-height: calc(100vh - 4.5rem);
+            padding: var(--space-4);
+            overflow-y: auto;
+            border-bottom: 1px solid var(--color-border);
+            background: var(--color-background);
+            box-shadow: var(--shadow-raised);
+        }
+
+        .header-actions.is-open {
+            display: grid;
+        }
+    }
+}

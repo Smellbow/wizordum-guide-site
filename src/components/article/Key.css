@@ -1,0 +1,15 @@
+@layer components {
+    kbd {
+        display: inline-block;
+        min-width: 1.8em;
+        padding: 0.05em 0.38em;
+        border: 1px solid var(--color-border);
+        border-bottom-width: 3px;
+        border-radius: var(--radius-small);
+        background: var(--color-surface);
+        color: var(--color-text);
+        font-family: ui-monospace, monospace;
+        font-size: 0.9em;
+        text-align: center;
+    }
+}

@@ -1,0 +1,102 @@
+@layer components {
+    .guide-note {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--space-4);
+        margin-block: var(--space-6);
+        padding: var(--space-4) var(--space-5);
+        border-left: 0.35rem solid var(--color-accent);
+        background: var(--color-surface);
+    }
+
+    .guide-note>strong {
+        color: var(--color-accent);
+    }
+
+    .guide-image-button {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0;
+        border-radius: var(--radius-medium);
+        background: transparent;
+        color: var(--color-text);
+        cursor: zoom-in;
+        overflow: hidden;
+    }
+
+    .guide-image-button:hover .guide-image {
+        transform: scale(1.01);
+    }
+
+    .guide-image {
+        transition: transform 160ms ease;
+    }
+
+    .enlarge-hint {
+        position: absolute;
+        right: var(--space-3);
+        bottom: var(--space-3);
+        display: grid;
+        width: 2.5rem;
+        aspect-ratio: 1;
+        place-items: center;
+        border: 1px solid var(--color-border);
+        border-radius: 50%;
+        background: var(--color-background);
+        color: var(--color-text);
+        font-size: 1.25rem;
+    }
+
+    .image-dialog {
+        width: min(92vw, 90rem);
+        max-height: 92vh;
+        padding: 0;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-medium);
+        background: var(--color-surface);
+        color: var(--color-text);
+    }
+
+    .image-dialog::backdrop {
+        background: rgb(24 20 37 / 85%);
+    }
+
+    .image-dialog-inner {
+        display: grid;
+        gap: var(--space-4);
+        padding: var(--space-4);
+    }
+
+    .image-dialog-inner form {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .image-dialog-inner img {
+        width: 100%;
+        max-height: 75vh;
+        object-fit: contain;
+    }
+
+    .image-dialog-inner p {
+        color: var(--color-text-muted);
+    }
+
+    .dialog-close {
+        min-height: 2.75rem;
+        padding: 0.5rem var(--space-4);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-small);
+        background: var(--color-background);
+        color: var(--color-text);
+        font-weight: 800;
+        cursor: pointer;
+    }
+
+    @media (max-width: 35rem) {
+        .guide-note {
+            grid-template-columns: 1fr;
+        }
+    }
+}

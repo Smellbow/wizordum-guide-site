@@ -1,0 +1,5 @@
+@layer components {
+    .animated-title {
+        text-wrap: wrap;
+    }
+}

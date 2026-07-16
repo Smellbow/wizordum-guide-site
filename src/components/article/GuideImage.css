@@ -1,0 +1,45 @@
+@layer components {
+    .guide-figure {
+        display: grid;
+        gap: var(--space-3);
+        margin-block: var(--space-6);
+    }
+
+    .guide-image,
+    .image-placeholder {
+        width: 100%;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-medium);
+        background: var(--color-surface);
+    }
+
+    .guide-image {
+        height: auto;
+    }
+
+    .image-placeholder {
+        display: grid;
+        aspect-ratio: var(--image-ratio);
+        min-height: 12rem;
+        place-content: center;
+        justify-items: center;
+        padding: var(--space-4);
+        border-style: dashed;
+        color: var(--color-text-muted);
+        text-align: center;
+    }
+
+    .image-placeholder>span {
+        color: var(--color-accent);
+        font-size: 2rem;
+    }
+
+    .image-placeholder small {
+        margin-top: var(--space-1);
+    }
+
+    .guide-figure figcaption {
+        color: var(--color-text-muted);
+        font-size: 0.9rem;
+    }
+}
