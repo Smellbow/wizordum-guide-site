@@ -93,6 +93,39 @@ Use `#/guide-template` as the visual reference and
 5. Ensure the guide has an item in `src/data/navigation.js`.
 6. Run the lint and build checks.
 
+### Connecting a new page
+
+A finished page must be connected in both `src/App.jsx` and
+`src/data/navigation.js`. Import the page and add a specific route before the
+generic `guides/:guideSlug` fallback:
+
+```jsx
+import ExamplePage from './pages/ExamplePage'
+
+<Route path="guides/example" element={<ExamplePage />} />
+<Route path="guides/:guideSlug" element={<ComingSoonPage />} />
+```
+
+Then add the matching root-relative URL to the appropriate navigation group:
+
+```js
+{
+  label: 'Example guide',
+  to: '/guides/example',
+}
+```
+
+The route and navigation URL must describe the same path. Route definitions
+nested beneath `AppLayout` omit the initial slash; navigation links include it.
+Do not add `#` yourself—`HashRouter` manages that part of the browser URL.
+
+Use consistent filename, component, import, and export names. Page filenames
+use PascalCase, such as `ExamplePage.jsx`, and the file ends with:
+
+```jsx
+export default ExamplePage
+```
+
 A standard guide begins with:
 
 ```jsx
@@ -199,6 +232,45 @@ background: var(--color-surface);
 ```
 
 Avoid raw hex values in component files.
+
+Token names must match those declared in `src/styles/tokens.css`. An undefined
+custom property invalidates the whole declaration that uses it. For example,
+this project provides `--radius-small`, `--radius-medium`, and
+`--radius-large`; it does not provide abbreviated `--radius-md` or
+`--radius-lg` tokens.
+
+## Searchable shortcut reference
+
+Editor shortcut content lives in `src/data/editorShortcuts.js` and is rendered
+by `ShortcutFinder`. Keeping the content separate from the component makes it
+possible to add or correct controls without rewriting the search interface.
+
+Each entry uses this shape:
+
+```js
+{
+  id: 'rotate-actor-left',
+  category: 'Selection',
+  keyGroups: [['Left Shift', 'Q']],
+  action: 'Rotate the selected actor counter-clockwise.',
+  context: 'Selection mode',
+  searchTerms: ['turn', 'object', 'decoration'],
+}
+```
+
+Each inner `keyGroups` array represents keys pressed together. Multiple inner
+arrays represent alternatives:
+
+```js
+// Left Shift + Q
+keyGroups: [['Left Shift', 'Q']]
+
+// Numpad Enter or F1
+keyGroups: [['Numpad Enter'], ['F1']]
+```
+
+`searchTerms` contains useful synonyms that should find the shortcut without
+being displayed. IDs must be unique, because React uses them as list keys.
 
 ## Themes
 

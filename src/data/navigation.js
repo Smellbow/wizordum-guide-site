@@ -7,6 +7,10 @@ const navigationGroups = [
         to: '/guides/basic-walls',
       },
       {
+        label: 'Interface and controls',
+        to: '/guides/interface',
+      },
+      {
         label: 'Transparent textures',
         to: '/guides/Transparant-Texture',
       },

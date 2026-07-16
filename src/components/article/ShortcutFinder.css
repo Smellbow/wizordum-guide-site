@@ -1,0 +1,138 @@
+@layer components {
+    .shortcut-finder {
+        display: grid;
+        gap: var(--space-4);
+        margin-block-start: var(--space-4);
+    }
+
+    .shortcut-search {
+        display: grid;
+        gap: var(--space-2);
+    }
+
+    .shortcut-search label {
+        color: var(--color-text);
+        font-weight: 700;
+    }
+
+    .shortcut-search input {
+        width: 100%;
+        padding: var(--space-3) var(--space-4);
+        border: 2px solid var(--color-border);
+        border-radius: var(--radius-medium);
+        background: var(--color-surface);
+        color: var(--color-text);
+        font: inherit;
+    }
+
+    .shortcut-search input::placeholder {
+        color: var(--color-text-muted);
+    }
+
+    .shortcut-search input:hover {
+        border-color: var(--color-accent);
+    }
+
+    .shortcut-search input:focus-visible {
+        border-color: var(--color-focus);
+        outline: 3px solid var(--color-focus);
+        outline-offset: 3px;
+    }
+
+    .shortcut-result-count {
+        margin: 0;
+        color: var(--color-text-muted);
+        font-size: var(--font-size-sm);
+    }
+
+    /*
+   * This overrides the general guide-page list styling because this is a
+   * collection of interface cards rather than a conventional bullet list.
+   */
+    .guide-page .shortcut-list {
+        display: grid;
+        gap: var(--space-3);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .shortcut-item {
+        display: grid;
+        grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 2fr);
+        gap: var(--space-4);
+        align-items: center;
+        padding: var(--space-4);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-large);
+        background: var(--color-surface);
+        box-shadow: 0 0.2rem 0 rgb(0 0 0 / 15%);
+    }
+
+    .shortcut-item:hover {
+        border-color: var(--color-accent);
+    }
+
+    .shortcut-keys {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2);
+        align-items: center;
+    }
+
+    .shortcut-key-group {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: var(--space-2);
+        align-items: center;
+    }
+
+    .shortcut-key-combination {
+        display: inline-flex;
+        gap: var(--space-2);
+        align-items: center;
+    }
+
+    .shortcut-key-separator {
+        color: var(--color-text-muted);
+        font-weight: 800;
+    }
+
+    .shortcut-description {
+        display: grid;
+        gap: var(--space-1);
+        min-width: 0;
+    }
+
+    .shortcut-description p {
+        margin: 0;
+        color: var(--color-text);
+    }
+
+    .shortcut-description span {
+        color: var(--color-text-muted);
+        font-size: var(--font-size-sm);
+    }
+
+    .shortcut-empty {
+        margin: 0;
+        padding: var(--space-4);
+        border: 1px dashed var(--color-border);
+        border-radius: var(--radius-large);
+        background: var(--color-surface);
+        color: var(--color-text-muted);
+        text-align: center;
+    }
+
+    @media (max-width: 42rem) {
+        .shortcut-item {
+            grid-template-columns: 1fr;
+            gap: var(--space-3);
+        }
+
+        .shortcut-keys {
+            padding-block-end: var(--space-3);
+            border-block-end: 1px solid var(--color-border);
+        }
+    }
+}
