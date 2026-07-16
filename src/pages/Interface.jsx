@@ -138,8 +138,7 @@ function InterfacePage() {
                 </p>
 
                 <p>
-                    We will add the complete mode reference after building the shortcut
-                    finder.
+                    ...not yet
                 </p>
             </section>
         </article>
