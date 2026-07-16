@@ -51,6 +51,15 @@ function BasicWallsPage() {
                     alt="The available wall types shown inside the Wizordum editor"
                     caption="The editor provides several wall shapes that can be combined."
                     dimensions="1200 × 900 px"
+                    ratio="16 / 9"
+                />
+                <GuideImage
+                    src={publicAsset(
+                        'guides/basic-walls/wallmenu1.png',
+                    )}
+                    alt="Menu showing the available wall types in the Wizordum editor"
+                    caption="Cubes, Floors, Ceilings, Flat edges, Corners, Liquids, and Middle walls are the main wall types."
+                    dimensions="423 × 57 px"
                     ratio="4 / 3"
                 />
                 <p>
@@ -79,8 +88,13 @@ function BasicWallsPage() {
                 </p>
 
                 <GuideImage
+                    src={publicAsset(
+                        'guides/basic-walls/wallcombo1.png',
+                    )}
                     alt="A simple room improved with corner-wall pillars and a framed bookcase"
                     caption="Corner pieces can frame walls and turn plain corners into architectural details."
+                    dimensions="1533 × 530 px"
+                    ratio="16 / 9"
                 />
 
                 <h3>Create off-grid columns</h3>
@@ -91,9 +105,12 @@ function BasicWallsPage() {
                 </p>
 
                 <GuideImage
+                    src={publicAsset(
+                        'guides/basic-walls/wallcombo2.png',
+                    )}
                     alt="Nested corner walls forming an off-grid pillar"
                     caption="Nested corner pieces create a narrow column."
-                    dimensions="1200 × 900 px"
+                    dimensions="1547 × 1046 px"
                     ratio="4 / 3"
                 />
 
@@ -105,9 +122,12 @@ function BasicWallsPage() {
                 </p>
 
                 <GuideImage
+                    src={publicAsset(
+                        'guides/basic-walls/wallcombo3.png',
+                    )}
                     alt="Middle-wall pieces used to form alcoves"
                     caption="Middle-wall pieces can form shallow recesses without complex setup."
-                    dimensions="1200 × 900 px"
+                    dimensions="1547 × 1046 px"
                     ratio="4 / 3"
                 />
             </section>
@@ -121,8 +141,13 @@ function BasicWallsPage() {
                 </p>
 
                 <GuideImage
+                    src={publicAsset(
+                        'guides/basic-walls/floors1.png',
+                    )}
                     alt="The available floor and ceiling sizes in the editor"
                     caption="Cycle through floor and ceiling sizes before placing the piece."
+                    dimensions="1576 × 491 px"
+                    ratio="16 / 9"
                 />
 
                 <p>
@@ -132,6 +157,7 @@ function BasicWallsPage() {
 
                 <div className="guide-image-grid">
                     <GuideImage
+                        src={publicAsset('guides/basic-walls/floors2.png')}
                         alt="Small floor parts used to build a column"
                         caption="Small floor pieces can finish narrow columns."
                         dimensions="1000 × 1000 px"
@@ -139,10 +165,10 @@ function BasicWallsPage() {
                     />
 
                     <GuideImage
+                        src={publicAsset('guides/basic-walls/floors3.png')}
                         alt="Small ceiling parts used in a matching column"
                         caption="The same combination works for ceiling details."
-                        dimensions="1000 × 1000 px"
-                        ratio="1 / 1"
+
                     />
                 </div>
 
