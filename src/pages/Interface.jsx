@@ -132,7 +132,7 @@ function InterfacePage() {
                     maxWidth="300px"
 
                 />
-
+                <p>Clicking the small radio like buttons next to a layer will hide it from the active view. Useful when things get busy!</p>
                 <GuideNote>
                     The player normally remains on one layer. Teleports, passages, and
                     elevators can move the player between layers.
@@ -141,7 +141,7 @@ function InterfacePage() {
 
             <section id="shortcuts">
                 <h2>Shortcut finder</h2>
-
+                <p>We all forget keys all the time...well I do. Here I will try list them and make searching a little easier.</p>
                 <p>
                     Search by key, editing mode, action, or editor view.
                 </p>
@@ -155,10 +155,29 @@ function InterfacePage() {
                     The editor provides seven main editing modes. Each mode can be
                     selected from the interface or with a number key.
                 </p>
+                <GuideImage
+                    src={publicAsset(
+                        'guides/interface/maintools.png',
+                    )}
+                    alt="Main tool icons from the left editor bar"
+                    caption="Main tools."
+                    maxWidth="16rem"
 
+                />
                 <p>
-                    ...not yet
+                    The <Key>1</Key> through <Key>7</Key> keys select the editing modes
+                    in the same order as the icons. CHeck the shortcut finder for more details on each mode and its controls.
                 </p>
+                <GuideNote>
+                    The diamond icons next to actors can be used as toggles when editing.
+                    <br />
+                    <br />
+                    <ul>
+                        <li>The padlock will lock/unlock a category - locked will prevent you moving that category.</li>
+                        <li>The power icon will show or hide all of that category.</li>
+
+                    </ul>
+                </GuideNote>
             </section>
         </article>
     )
