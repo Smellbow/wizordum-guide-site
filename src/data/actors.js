@@ -411,10 +411,11 @@ const actors = [
     category: 'Logic',
     summary: 'Provides a connection point for an actor sequence.',
     description:
-      'Nodes can help structure more complicated chains of activation and keep related actions organised.',
+      'Nodes alone do not do anything, They act as points for other actors to use. Wall tower paths, minecart paths, cutter paths, treasure goblin paths, destinations for move to actors and one way teleport destinations',
     example:
-      'Use nodes to divide a large scripted encounter into smaller connected stages.',
+      'Connect to a cutter to define the path it will travel along',
     parameters: [],
+    image: 'actors/node.png',
     tags: [
       'node',
       'connection',
@@ -431,10 +432,11 @@ const actors = [
     category: 'Audio and Visual',
     summary: 'Creates an earthquake-style environmental effect.',
     description:
-      'Use this actor to add shaking and impact to collapses, machinery, or dramatic scripted events.',
+      'Use this actor to add shaking and impact to collapses, machinery, or dramatic scripted events. Makes the player camera judder around',
     example:
       'Activate an Earthquake alongside collapsing walls as a boss enters the arena.',
-    parameters: [],
+    parameters: [{name: 'Strength', description: 'How much shaking will be applied'},{name: 'Duration', description: 'How long the effect will last'}],
+    image: 'actors/quake.png',
     tags: [
       'earthquake',
       'shake',
@@ -451,10 +453,11 @@ const actors = [
     category: 'Geometry',
     summary: 'Breaks a wall when activated.',
     description:
-      'Use Wall Break to make a wall visibly break as part of an encounter, secret, or scripted event.',
+      'Wall breaks create small cracks on the wall, the player can break these open.',
     example:
-      'Break open a wall when enemies ambush the player from an adjacent room.',
-    parameters: [],
+      'Hide a secret room behind a regular wall with this actor so the player can break their way in',
+    parameters: [{name: 'Type', description: 'Select wood or stone for the effect when broken'}],
+    image: 'actors/wallbreak.png',
     tags: [
       'wall',
       'break',
