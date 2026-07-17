@@ -16,8 +16,6 @@ const heroSprites = [
 ]
 
 
-
-
 function HomePage() {
     const heroRef = useRef(null)
     useDocumentTitle('Home')
@@ -71,8 +69,8 @@ function HomePage() {
                 </AnimatedTitle>
 
                 <p className="hero-summary">
-                    A community companion for practical editor techniques,
-                    real-world examples, and useful details that are easy to miss.
+                    A community companion for practical editor techniques
+                    and useful details that are easy to miss.
                 </p>
 
                 <div className="hero-actions">
@@ -94,6 +92,9 @@ function HomePage() {
                             (opens in a new tab)
                         </span>
                     </a>
+                    <p className="hero-actions-note">
+                        <em>Don’t sleep on the official guides!</em>
+                    </p>
                 </div>
                 <img
                     className="hero-goblin"

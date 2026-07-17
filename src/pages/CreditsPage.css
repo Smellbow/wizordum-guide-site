@@ -1,0 +1,105 @@
+@layer components {
+    .credits-page {
+        display: grid;
+        gap: var(--space-7);
+    }
+
+    .credits-header {
+        display: grid;
+        max-width: 48rem;
+        gap: var(--space-3);
+    }
+
+    .credits-header p:not(.eyebrow),
+    .credits-thanks {
+        color: var(--color-text-muted);
+    }
+
+    .credits-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-4);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    @media (max-width: 56rem) {
+        .credits-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 38rem) {
+        .credits-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .credit-card {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: var(--space-4);
+        align-items: start;
+        padding: var(--space-5);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-large);
+        background: var(--color-surface);
+    }
+
+    .credit-avatar,
+    .credit-mark {
+        width: 3rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+    }
+
+    .credit-mark {
+        display: grid;
+        width: 3rem;
+        aspect-ratio: 1;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--color-accent);
+        color: var(--color-on-accent);
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 900;
+    }
+
+    .credit-avatar {
+        display: block;
+        border: 2px solid var(--color-border);
+        object-fit: cover;
+    }
+
+    .credit-details {
+        display: grid;
+        gap: var(--space-2);
+    }
+
+    .credit-details h2,
+    .credit-details p {
+        margin: 0;
+    }
+
+    .credit-details h2 {
+        font-size: 1.25rem;
+    }
+
+    .credit-details p {
+        color: var(--color-text-muted);
+    }
+
+    .credit-details .credit-role {
+        color: var(--color-accent);
+        font-size: 0.85rem;
+        font-weight: 800;
+    }
+
+    .credits-thanks {
+        max-width: 48rem;
+        padding-inline-start: var(--space-4);
+        border-inline-start: 0.25rem solid var(--color-accent);
+    }
+}
