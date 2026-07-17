@@ -196,10 +196,11 @@ const actors = [
     category: 'Geometry',
     summary: 'Creates a floor with special magical behaviour.',
     description:
-      'Use this actor where a floor area needs behaviour beyond that of an ordinary map surface.',
+      'When the player collects the Seers orb, these floors will become walkable',
     example:
-      'Add one to a magical chamber and configure its available properties for the desired effect.',
+      'A key is in sight but out of reach, the player needs the orb to get to it!',
     parameters: [],
+    image: 'actors/magicfloor.png',
     tags: [
       'magic',
       'floor',
@@ -216,10 +217,11 @@ const actors = [
     category: 'Movement',
     summary: 'Pushes the player through liquid in a chosen direction.',
     description:
-      'Use Water Current to create directional movement while the player is inside a liquid area.',
+      'Use Water Current to create directional movement while the player is inside a liquid area. (or other!)',
     example:
-      'Create a river that carries the player towards a hazard, exit, or branching passage.',
-    parameters: [],
+      'Create a river that carries the player towards an area',
+    image: 'actors/watercurrent.png',
+    parameters: [{name: 'power',description: 'How fast should the player be moved'}],
     tags: [
       'water',
       'current',
@@ -240,7 +242,8 @@ const actors = [
       'Switches provide a visible interactive control for doors, traps, movers, and other actors.',
     example:
       'Connect a switch to a door so that using the switch opens the route ahead.',
-    parameters: [],
+    parameters: [{name: 'State',description: 'Can be set to "on" to start already switched'}],
+    image: 'actors/switch1.png',
     tags: [
       'switch',
       'button',
@@ -260,7 +263,8 @@ const actors = [
       'Use a Shootable Switch when the player must attack a target instead of interacting with it directly.',
     example:
       'Place one across a gap to open a distant door when the player shoots it.',
-    parameters: [],
+    parameters: [{name: 'Position',description: 'Toggle the placement of the switch or its visibility'}],
+    image: 'actors/shootswitch1.png',
     tags: [
       'shoot',
       'shootable',
@@ -278,10 +282,11 @@ const actors = [
     category: 'Logic',
     summary: 'Coordinates several inputs as part of a combined activation.',
     description:
-      'Use a Combination actor when multiple switches or other signals must contribute to one result.',
+      'Use a Combination actor when multiple switches or other signals must contribute to one result. Check out the offical docs for some good guidance images!',
     example:
       'Require several switches to be activated before opening a locked chamber.',
-    parameters: [],
+    parameters: [{name: 'State',description: 'Toggle if you want the player to be able to adjust switches AFTER getting the right combo'}],
+    image: 'actors/combo1.png',
     tags: [
       'combination',
       'multiple',
@@ -301,7 +306,8 @@ const actors = [
       'Use this variant when a switch needs to repeatedly send signals rather than becoming permanently used.',
     example:
       'Control a moving platform that the player may need to call several times.',
-    parameters: [],
+    parameters: [{name:'State', description: 'Toggle if the switch starts on'}],
+    image: 'actors/multiswitch.png',
     tags: [
       'switch',
       'multiuse',
