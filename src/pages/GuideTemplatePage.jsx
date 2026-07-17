@@ -64,7 +64,7 @@ function GuideTemplatePage() {
                     <p>
                         Use a note for cautions, useful discoveries, limitations, or
                         information that supports the instructions without belonging
-                        in the main flow.
+                        in the main flow. Guide note can take an optional title prop.
                     </p>
                 </GuideNote>
             </section>

@@ -7,7 +7,7 @@ const communityCredits = [
         name: 'Primoz & Taoma',
         role: 'Developers and offical guide creators',
         description:
-            'Blesed the community with the Wizordum editor and its official guides!',
+            'Blessed the community with the Wizordum editor and its official guides!',
         avatar: 'avatars/ember1.webp',
     },
     {
