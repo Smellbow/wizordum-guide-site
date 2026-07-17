@@ -285,6 +285,69 @@ keyGroups: [['Numpad Enter'], ['F1']]
 `searchTerms` contains useful synonyms that should find the shortcut without
 being displayed. IDs must be unique, because React uses them as list keys.
 
+## Actor reference
+
+The actor reference uses a single searchable browser rather than a separate
+React route for every actor. `ActorsPage` renders `ActorBrowser` at `/actors`,
+and the selected actor is stored in the URL query string:
+
+```text
+#/actors                         → Actor browser with no selection
+#/actors?actor=door              → Door details selected
+#/actors?actor=enemy-spawner     → Enemy Spawner details selected
+```
+
+This makes a selection bookmarkable and shareable without creating another
+route. Navigation links should still use `/actors`; `HashRouter` adds the hash.
+
+Actor content lives in `src/data/actors.js`. `ActorBrowser` is responsible for
+searching that data, reporting the result count, rendering the result buttons
+and selected state, reading and updating the `actor` search parameter, showing
+the selected actor's details and parameters, and closing the detail view.
+
+Each actor uses this shape:
+
+```js
+{
+  id: 'enemy-spawner',
+  name: 'Enemy Spawner',
+  category: 'Objects',
+  summary: 'Short search-result description.',
+  description: 'Full explanation.',
+  example: 'Practical mapping use.',
+  parameters: [
+    {
+      name: 'Enemy type',
+      description: 'What the parameter controls.',
+    },
+  ],
+  tags: ['spawn', 'enemy', 'ambush', 'trigger'],
+  image: 'actors/enemy-spawner.png',
+  imageAlt: 'The Enemy Spawner in the editor.',
+  related: ['trigger', 'spawn-wave'],
+}
+```
+
+Every `id` must be unique, lowercase, and hyphenated. The ID is used for React
+list keys and the `?actor=` URL value. Always include `parameters` and `tags` as
+arrays, using `parameters: []` or `tags: []` when there are no entries.
+
+Search checks the actor's name, category, summary, description, example,
+parameters, and tags. Tags are not displayed in the detail panel, so they are
+the place for useful synonyms such as `monster`, `doorway`, or `ambush`.
+
+Optional actor images belong in `public/actors/`. Store the path relative to
+`public`, then pass it through `publicAsset` when rendering:
+
+```jsx
+src={publicAsset(selectedActor.image)}
+```
+
+`imageAlt` should describe useful information shown by the image. If it is
+omitted, `ActorBrowser` supplies a description based on the actor name.
+`related` contains the unique IDs of associated actors; these relationships are
+stored in the data even though related-actor links are not rendered yet.
+
 ## Themes
 
 Dark-theme semantic tokens are defined on `:root`. Light-theme values override

@@ -15,6 +15,7 @@ import AdditiveLoad from './pages/AdditiveLoad'
 import Stacking from './pages/Stacking'
 import PlaceWithTexture from './pages/PlaceWithTexture'
 import TestingMaps from './pages/TestingMaps'
+import ActorsPage from './pages/ActorsPage'
 
 function App() {
   return (
@@ -29,9 +30,10 @@ function App() {
         <Route path="guides/Transparant-Texture" element={<TransparantTexture />} />
         <Route path="guides/cut-paste" element={<CutPaste />} />
         <Route path="guides/additive-load" element={<AdditiveLoad />} />
-        <Route path="/guides/copying-stacks" element={<Stacking />} />
-        <Route path="/guides/textured-blocks" element={<PlaceWithTexture />} />
-        <Route path="/guides/testing-maps" element={<TestingMaps />} />
+        <Route path="guides/copying-stacks" element={<Stacking />} />
+        <Route path="guides/textured-blocks" element={<PlaceWithTexture />} />
+        <Route path="guides/testing-maps" element={<TestingMaps />} />
+        <Route path="actors" element={<ActorsPage />} />
         <Route
           path="guides/:guideSlug"
           element={<ComingSoonPage />}

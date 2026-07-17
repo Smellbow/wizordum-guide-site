@@ -1,0 +1,23 @@
+@layer components {
+    .actors-page {
+        display: grid;
+        gap: var(--space-6);
+    }
+
+    .actors-header {
+        display: grid;
+        max-width: 48rem;
+        gap: var(--space-3);
+    }
+
+    .actors-header p:not(.eyebrow),
+    .actors-status {
+        color: var(--color-text-muted);
+    }
+
+    .actors-status {
+        margin: 0;
+    }
+
+
+}

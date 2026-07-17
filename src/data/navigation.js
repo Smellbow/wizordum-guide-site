@@ -74,6 +74,15 @@ const navigationGroups = [
     ],
   },
   {
+  label: 'Actors',
+  items: [
+    {
+      label: 'Actor reference',
+      to: '/actors',
+    },
+  ],
+},
+  {
     label: 'Resources and about',
     items: [
       {
