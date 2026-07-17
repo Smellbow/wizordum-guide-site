@@ -10,6 +10,7 @@ import ComingSoonPage from './pages/ComingSoonPage'
 import GuideTemplatePage from './pages/GuideTemplatePage'
 import TransparantTexture from './pages/TransparantTexture'
 import InterfacePage from './pages/Interface'
+import CutPaste from './pages/CutPaste'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="guides/basic-walls" element={<BasicWallsPage />} />
         <Route path="guides/interface" element={<InterfacePage />} />
         <Route path="guides/Transparant-Texture" element={<TransparantTexture />} />
+        <Route path="guides/cut-paste" element={<CutPaste />} />
         <Route
           path="guides/:guideSlug"
           element={<ComingSoonPage />}

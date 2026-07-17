@@ -33,8 +33,8 @@ const communityCredits = [
     },
     {
         name: 'Smellbow',
-        role: 'Mapper and guide contributor',
-        description: 'description here.',
+        role: 'Creator of this site!',
+        description: 'I make the odd map and write guides as my own memory is awful 🧠',
         avatar: 'avatars/smellbow.png',
     },
 ]

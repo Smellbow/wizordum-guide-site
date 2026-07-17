@@ -16,7 +16,7 @@ const navigationGroups = [
       },
       {
         label: 'Cut and paste',
-        to: '/guides/cut-and-paste',
+        to: '/guides/cut-paste',
       },
       {
         label: 'Additive load',
