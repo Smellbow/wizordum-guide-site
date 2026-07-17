@@ -1,14 +1,67 @@
 import { Link } from 'react-router-dom'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 import AnimatedTitle from '../components/animation/AnimatedTitle.jsx'
+import publicAsset from '../utils/publicAsset'
+import { useRef, useState } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 import './HomePage.css'
+gsap.registerPlugin(useGSAP)
+
+const heroSprites = [
+    'decor/gobo1.webp',
+    'decor/gobo2.webp',
+    'decor/skelly1.webp',
+    'decor/ogre1.webp',
+]
+
+
+
 
 function HomePage() {
+    const heroRef = useRef(null)
     useDocumentTitle('Home')
+
+
+    const [heroSprite] = useState(() => {
+        const randomIndex = Math.floor(
+            Math.random() * heroSprites.length,
+        )
+
+        return heroSprites[randomIndex]
+    })
+
+
+    useGSAP(
+        () => {
+            const prefersReducedMotion = window.matchMedia(
+                '(prefers-reduced-motion: reduce)',
+            ).matches
+
+            if (prefersReducedMotion) {
+                return
+            }
+
+            gsap.from('.hero-goblin', {
+                xPercent: 100,
+                autoAlpha: 0,
+                rotation: 30,
+                scale: 0.7,
+                duration: 1,
+                delay: 0.2,
+                ease: 'back.out(1.2)',
+                clearProps: 'transform,opacity,visibility',
+            })
+        },
+        {
+            scope: heroRef,
+        },
+    )
+
 
     return (
         <div className="home-page page-width">
-            <section className="hero" aria-labelledby="hero-title">
+            <section ref={heroRef} className="hero" aria-labelledby="hero-title">
                 <p className="eyebrow">
                     Build stranger, smarter maps
                 </p>
@@ -42,6 +95,12 @@ function HomePage() {
                         </span>
                     </a>
                 </div>
+                <img
+                    className="hero-goblin"
+                    src={publicAsset(heroSprite)}
+                    alt=""
+                    aria-hidden="true"
+                />
             </section>
 
             <section aria-labelledby="explore-title">

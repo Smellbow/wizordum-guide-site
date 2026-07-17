@@ -14,16 +14,18 @@
         overflow: hidden;
     }
 
-    .hero::after {
-        content: '';
+    .hero>.hero-goblin {
         position: absolute;
         z-index: 0;
-        right: 2%;
-        width: min(30vw, 22rem);
-        aspect-ratio: 1;
-        border: clamp(1.5rem, 4vw, 3.5rem) solid var(--color-surface);
-        transform: rotate(45deg);
+        right: clamp(-2rem, 2vw, 2rem);
+        width: clamp(12rem, 28vw, 22rem);
+        height: auto;
+        transform: rotate(8deg);
+        transform-origin: center;
         opacity: 0.8;
+        image-rendering: pixelated;
+        pointer-events: none;
+        user-select: none;
     }
 
     .hero>* {
@@ -128,8 +130,10 @@
             transform: none;
         }
 
-        .hero::after {
-            opacity: 0.35;
+        .hero>.hero-goblin {
+            right: -4rem;
+            width: 15rem;
+            opacity: 0.25;
         }
     }
 }

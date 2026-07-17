@@ -22,6 +22,7 @@ function NotFoundPage() {
 
     useDocumentTitle('Not Found')
     const pageRef = useRef(null)
+    // useRef is a React hook that allows you to create a mutable reference to a DOM element or a value that persists across renders. In this case, pageRef is being used to reference the main section of the NotFoundPage component, which can be useful for animations or other DOM manipulations.
 
     const [notFoundMessage] = useState(() => {
         const randomIndex = Math.floor(
