@@ -44,6 +44,7 @@ Examples:
 ```text
 #/                          → HomePage
 #/resources                 → ResourcesPage
+#/actors                    → ActorsPage
 #/guides/basic-walls        → BasicWallsPage
 #/guides/teleports          → ComingSoonPage
 #/guide-template            → GuideTemplatePage
@@ -68,15 +69,17 @@ Explicit guide routes take priority over the generic coming-soon route.
 ```text
 src/
 ├── components/
+│   ├── actors/          Searchable actor-reference components
 │   ├── animation/       GSAP presentation components
 │   ├── article/         Reusable guide-page components
 │   ├── layout/          Persistent header, footer, and app shell
 │   ├── navigation/      Primary navigation
 │   └── theme/           Theme controls
-├── data/                Navigation and other shared data
+├── data/                Navigation, actors, shortcuts, and other shared data
 ├── hooks/               Reusable React behaviour
 ├── pages/               Route-level page components
 ├── styles/              Reset, tokens, base styles, and utilities
+├── utils/               Shared helpers, including publicAsset
 ├── App.jsx              Route definitions
 └── main.jsx             React entry point
 ```
@@ -129,13 +132,15 @@ export default ExamplePage
 A standard guide begins with:
 
 ```jsx
+import publicAsset from '../utils/publicAsset'
+
 <GuideHeader
   category="Mapping basics"
   title="Guide title"
   summary="A concise description of what the reader will learn."
   author="Author name"
   published="2026-07-16"
-  avatar="/authors/author-name.png"
+  avatar={publicAsset('avatars/author-name.png')}
 />
 ```
 
@@ -303,7 +308,9 @@ route. Navigation links should still use `/actors`; `HashRouter` adds the hash.
 Actor content lives in `src/data/actors.js`. `ActorBrowser` is responsible for
 searching that data, reporting the result count, rendering the result buttons
 and selected state, reading and updating the `actor` search parameter, showing
-the selected actor's details and parameters, and closing the detail view.
+the selected actor's details and parameters, and closing the detail view. The
+browser currently displays a work-in-progress notice because actor entries are
+still being completed and checked for accuracy.
 
 Each actor uses this shape:
 
@@ -322,9 +329,9 @@ Each actor uses this shape:
     },
   ],
   tags: ['spawn', 'enemy', 'ambush', 'trigger'],
-  image: 'actors/enemy-spawner.png',
+  image: 'actors/enemyspawner.png',
   imageAlt: 'The Enemy Spawner in the editor.',
-  related: ['trigger', 'spawn-wave'],
+  related: ['player-trigger'],
 }
 ```
 
