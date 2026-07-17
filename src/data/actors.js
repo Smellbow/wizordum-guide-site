@@ -392,7 +392,7 @@ const actors = [
       'Relays help organise connections and allow one event to activate a group of related actors.',
     example:
       'Send a Player Trigger into a Relay that activates sound, enemies, and moving walls together.',
-    parameters: [{name: 'Once', description: 'Will this relay only fire its targets one or multiple times'},{name: 'Sticky', description: 'Errr'}],
+    parameters: [{name: 'Once', description: 'Will this relay only fire its targets one or multiple times'},{name: 'Sticky', description: 'Allows the relay to be moved, useful if you want to redirect a path using relays'}],
     image: 'actors/relay.png',
     tags: [
       'relay',

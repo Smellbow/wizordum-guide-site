@@ -69,7 +69,7 @@ function ActorBrowser({ actors }) {
                     autoComplete="off"
                 />
             </div>
-
+            <h2>WIP! Entries are not complete</h2>
             <p className="actor-result-count" aria-live="polite">
                 {filteredActors.length === 1
                     ? '1 actor found'
