@@ -1,0 +1,113 @@
+@layer components {
+    .resources-page {
+        display: grid;
+        gap: var(--space-7);
+    }
+
+    .resources-header {
+        display: grid;
+        max-width: 48rem;
+        gap: var(--space-3);
+    }
+
+    .resources-header p:not(.eyebrow) {
+        color: var(--color-text-muted);
+        font-size: 1.1rem;
+    }
+
+    .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-4);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .resource-card {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: var(--space-5);
+        padding: var(--space-5);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-large);
+        background: var(--color-surface);
+        box-shadow: var(--shadow-raised);
+        transition:
+            border-color 160ms ease,
+            transform 160ms ease;
+    }
+
+    .resource-card:hover {
+        border-color: var(--color-accent);
+        transform: translateY(-0.25rem);
+    }
+
+    .resource-icon {
+        display: grid;
+        width: 4rem;
+        aspect-ratio: 1;
+        place-items: center;
+        overflow: hidden;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-medium);
+        background: white;
+        color: var(--color-accent);
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+
+    .resource-icon img {
+        width: 70%;
+        height: 70%;
+        object-fit: contain;
+    }
+
+    .resource-content {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: var(--space-3);
+    }
+
+    .resource-content h2,
+    .resource-content p {
+        margin: 0;
+    }
+
+    .resource-content h2 {
+        font-size: 1.35rem;
+    }
+
+    .resource-content p {
+        color: var(--color-text-muted);
+    }
+
+    .resource-content a {
+        width: fit-content;
+        color: var(--color-accent);
+        font-weight: 800;
+    }
+
+    @media (max-width: 56rem) {
+        .resource-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 38rem) {
+        .resource-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .resource-card {
+            transition: none;
+        }
+
+        .resource-card:hover {
+            transform: none;
+        }
+    }
+}

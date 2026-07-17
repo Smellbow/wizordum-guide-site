@@ -13,6 +13,8 @@ import InterfacePage from './pages/Interface'
 import CutPaste from './pages/CutPaste'
 import AdditiveLoad from './pages/AdditiveLoad'
 import Stacking from './pages/Stacking'
+import PlaceWithTexture from './pages/PlaceWithTexture'
+import TestingMaps from './pages/TestingMaps'
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="guides/cut-paste" element={<CutPaste />} />
         <Route path="guides/additive-load" element={<AdditiveLoad />} />
         <Route path="/guides/copying-stacks" element={<Stacking />} />
+        <Route path="/guides/textured-blocks" element={<PlaceWithTexture />} />
+        <Route path="/guides/testing-maps" element={<TestingMaps />} />
         <Route
           path="guides/:guideSlug"
           element={<ComingSoonPage />}

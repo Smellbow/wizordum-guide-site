@@ -519,6 +519,14 @@ const editorShortcuts = [
     context: 'Object mode',
     searchTerms: ['turn', 'actor'],
   },
+  {
+    id: 'Test map from point',
+    category: 'Editing modes',
+    keyGroups: [['Ctrl', 'T']],
+    action: 'Start the map from this point',
+    context: '3D view',
+    searchTerms: ['test', 'run', 'Load'],
+  },
 ]
 
 export default editorShortcuts
