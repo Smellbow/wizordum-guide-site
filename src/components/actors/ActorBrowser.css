@@ -265,6 +265,14 @@
     }
 
     @media (min-width: 50.01rem) {
+        .actor-results {
+            max-height: calc(100vh - 8rem);
+            padding-inline-end: var(--space-2);
+            overflow-y: auto;
+            scrollbar-gutter: stable;
+            overscroll-behavior: contain;
+        }
+
         .actor-detail-area {
             position: sticky;
             top: 6rem;
