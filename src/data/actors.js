@@ -327,7 +327,8 @@ const actors = [
       'Use this actor when an interactable location should send a signal without displaying an ordinary switch.',
     example:
       'Create a hidden interaction on a suspicious wall or decorative object.',
-    parameters: [],
+    parameters: [{name:'multi use', description: 'Allow multiple uses'},{name:'Hide', description: 'Prevent use until enabled'}],
+    image: 'actors/invisswitch.png',
     tags: [
       'invisible',
       'switch',
@@ -344,10 +345,11 @@ const actors = [
     category: 'Logic',
     summary: 'Counts incoming activations before sending its own signal.',
     description:
-      'Use a Counter when an action should occur only after a particular number of events has happened.',
+      'Use a Counter when an action should occur only after a particular number of events has happened. More than one trigger must feed into the activator for it to then trigger what is is connected to.',
     example:
       'Open an exit after the player activates three separate switches.',
     parameters: [],
+    image: 'actors/countact.png',
     tags: [
       'counter',
       'count',
@@ -367,8 +369,9 @@ const actors = [
     description:
       'Use a Timer to create a pause between receiving a signal and activating another actor.',
     example:
-      'Wait several seconds after a switch is pressed before lowering a wall.',
-    parameters: [],
+      'Wait several seconds after a switch is pressed before lowering a wall. up to 4s',
+    parameters: [{name: 'Time', description: 'How long the delay will be in increments, up to 4s. Can be chained.'}],
+    image: 'actors/timer.png',
     tags: [
       'timer',
       'time',
@@ -389,7 +392,8 @@ const actors = [
       'Relays help organise connections and allow one event to activate a group of related actors.',
     example:
       'Send a Player Trigger into a Relay that activates sound, enemies, and moving walls together.',
-    parameters: [],
+    parameters: [{name: 'Once', description: 'Will this relay only fire its targets one or multiple times'},{name: 'Sticky', description: 'Errr'}],
+    image: 'actors/relay.png',
     tags: [
       'relay',
       'signal',
