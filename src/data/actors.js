@@ -861,8 +861,9 @@ const actors = [
     description:
       'Use Sound FX to support switches, traps, secrets, encounters, and scripted environmental events.',
     example:
-      'Play a heavy impact sound when a wall collapses.',
+      'Play a heavy impact sound when a wall collapses, or sound a bell for an alarm',
     parameters: [],
+    image: 'actors/soundfx.png',
     tags: [
       'sound',
       'audio',
@@ -881,8 +882,9 @@ const actors = [
     description:
       'Use Sound Source for audio that should appear to come from a particular location.',
     example:
-      'Add ambient machinery noise to a specific part of a room.',
-    parameters: [],
+      'Add ambient water noise to a specific part of a room.',
+    parameters: [{name: 'Toggle type', description: 'Select the soud to be played'}],
+    image: 'actors/soundsource.png',
     tags: [
       'sound',
       'audio',
@@ -899,10 +901,11 @@ const actors = [
     category: 'Audio and Visual',
     summary: 'Displays a configured visual effect.',
     description:
-      'Use this actor to add visual feedback to magic, traps, switches, portals, and scripted sequences.',
+      'Use this actor to add bursts of dust or an explosion to other actions and sequences',
     example:
-      'Display a magical burst when a portal becomes active.',
+      'Display an explosion as a wall is destroyed',
     parameters: [],
+    image: 'actors/visualeffect.png',
     tags: [
       'visual',
       'effect',
@@ -919,10 +922,11 @@ const actors = [
     category: 'Combat and Hazards',
     summary: 'Creates a magical field with configurable behaviour.',
     description:
-      'Use Magic Field as a visible barrier, hazard, or magical boundary within the map.',
+      'Use Magic Field as a visible barrier blocking progress until the matching orb is destroyed. Note that barriers can reflect projectiles and be angled to created neat tricks',
     example:
-      'Block a doorway with a magic field until the player activates the correct switch.',
+      'Block a doorway with a magic field until the player finds and destroys the matching orb.',
     parameters: [],
+    image: 'actors/magicbar.png',
     tags: [
       'magic',
       'field',
@@ -941,8 +945,9 @@ const actors = [
     description:
       'Use a Deactivator when an actor must stop responding after a particular event.',
     example:
-      'Disable a Player Trigger after it has started a one-time encounter.',
+      'Disable a Player Trigger after it has started a one-time encounter, Stop a wall tower moving or wall turret firing. Deactivating a wall riser/lower will cause it to go back to its original position',
     parameters: [],
+    image: 'actors/deactivate.png',
     tags: [
       'deactivate',
       'disable',
@@ -959,10 +964,11 @@ const actors = [
     category: 'Logic',
     summary: 'Sends an activation signal when the level begins.',
     description:
-      'Use this actor to start ambient effects, machinery, timers, or other scripted behaviour immediately.',
+      'This actor will trigger any connected actors as soon as the level starts.',
     example:
-      'Begin a repeating environmental sound as soon as the map loads.',
+      'Begin a boulder trap as the map loads or move some walls around without needing player interaction',
     parameters: [],
+    image: 'actors/startflag.png',
     tags: [
       'level',
       'start',
@@ -979,10 +985,11 @@ const actors = [
     category: 'Essential',
     summary: 'Creates an automatic save point.',
     description:
-      'Use Autosave before important encounters or after meaningful sections of progression.',
+      'Use Autosave before important encounters or after meaningful sections of progression. Try to add a few of these in your maps to prevent total restarts that may frustrate players. Connect a trigger to this actor to cause an autosave.',
     example:
       'Trigger an autosave immediately before the player enters a boss arena.',
     parameters: [],
+    image: 'actors/autosave.png',
     tags: [
       'autosave',
       'save',
@@ -994,14 +1001,15 @@ const actors = [
   },
   {
     id: 'waypoint',
-    name: 'Waypoint',
+    name: 'Waypoint (Wheyypoint)',
     category: 'Movement',
-    summary: 'Provides a target position used by other actors.',
+    summary: 'Guides the player on the minimap',
     description:
-      'Use Waypoints to define destinations and routes for actors that move through the map.',
+      'Use Waypoints to help guide the player on the minimap, The flashing blue points that help indicate a correct path or next intended route are controlled by these. Connect them to each other in sequence and trigger them as needed.',
     example:
-      'Give a Creature Move To actor a waypoint on the opposite side of a room.',
-    parameters: [],
+      'Keep the player on track by placing waypoints throughout the map',
+    parameters: [{name: 'No Trigger', description: 'The waypoint will be flagged without needing a trigger action to do so'}],
+    image: 'actors/wheyypoint.png',
     tags: [
       'waypoint',
       'destination',
@@ -1018,10 +1026,11 @@ const actors = [
     category: 'Creature and Loot',
     summary: 'Directs a creature towards a selected destination.',
     description:
-      'Use Creature Move To for staged entrances, patrol-like movement, and scripted creature positioning.',
+      'Creature Move To is used to make enemies walk toward a specific location (Node). The enemy will stop moving if it spots a player and will attack instead.',
     example:
       'Make a creature move towards a waypoint when an encounter begins.',
     parameters: [],
+    image: 'actors/creaturemove.png',
     tags: [
       'creature',
       'enemy',
@@ -1038,10 +1047,11 @@ const actors = [
     category: 'Creature and Loot',
     summary: 'Associates a creature with another moving element.',
     description:
-      'Use Creature Glue when a creature must remain attached to compatible moving geometry or behaviour.',
+      'Use Creature Glue when a creature must remain attached to compatible moving geometry or behaviour. A creature will remain stuck unless you deactivate the glue later.',
     example:
       'Attach a creature to an element that changes position during a scripted sequence.',
     parameters: [],
+    image: 'actors/cglue.png',
     tags: [
       'creature',
       'enemy',
@@ -1058,10 +1068,11 @@ const actors = [
     category: 'Creature and Loot',
     summary: 'Associates loot with another moving element.',
     description:
-      'Use Loot Glue when an item must remain attached to compatible moving geometry or behaviour.',
+      'Use Loot Glue when an item must remain attached to compatible moving geometry or behaviour. Works for massive movers so you can swap out a large area and have loot appear',
     example:
       'Keep a pickup positioned on a moving piece of scenery.',
     parameters: [],
+    image: 'actors/lootglue.png',
     tags: [
       'loot',
       'item',
@@ -1078,10 +1089,11 @@ const actors = [
     category: 'Audio and Visual',
     summary: 'Changes or activates ambient behaviour in an area.',
     description:
-      'Use Ambient Trigger to alter the atmosphere as the player moves between parts of the map.',
+      'Use Ambient Trigger to alter the atmosphere as the player moves between parts of the map. Changes will trigger as the player passes into the trigger.',
     example:
       'Change the ambient sound when the player enters an underground section.',
-    parameters: [],
+    parameters: [{name: 'Size', description: 'Alter the size of the area that will cause a change'}],
+    image: 'actors/ambientt.png',
     tags: [
       'ambient',
       'trigger',
