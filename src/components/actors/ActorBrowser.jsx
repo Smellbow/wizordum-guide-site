@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import './ActorBrowser.css'
 import publicAsset from '../../utils/publicAsset'
@@ -6,12 +6,28 @@ import publicAsset from '../../utils/publicAsset'
 function ActorBrowser({ actors }) {
     const [searchTerm, setSearchTerm] = useState('')
     const [searchParams, setSearchParams] = useSearchParams()
+    const detailTitleRef = useRef(null)
+    const shouldFocusDetailsRef = useRef(false)
 
     const selectedActorId = searchParams.get('actor')
 
     const selectedActor = actors.find(
         (actor) => actor.id === selectedActorId,
     )
+
+    useEffect(() => {
+        if (!selectedActor || !shouldFocusDetailsRef.current) {
+            return
+        }
+
+        shouldFocusDetailsRef.current = false
+
+        const isNarrowScreen = window.matchMedia('(max-width: 50rem)').matches
+
+        if (isNarrowScreen) {
+            detailTitleRef.current?.focus()
+        }
+    }, [selectedActor])
 
     const normalisedSearch = searchTerm.trim().toLowerCase()
 
@@ -40,6 +56,7 @@ function ActorBrowser({ actors }) {
     function selectActor(actorId) {
         const nextParams = new URLSearchParams(searchParams)
 
+        shouldFocusDetailsRef.current = true
         nextParams.set('actor', actorId)
         setSearchParams(nextParams)
     }
@@ -117,7 +134,11 @@ function ActorBrowser({ actors }) {
                                     {selectedActor.category}
                                 </p>
 
-                                <h2 id="selected-actor-title">
+                                <h2
+                                    id="selected-actor-title"
+                                    ref={detailTitleRef}
+                                    tabIndex="-1"
+                                >
                                     {selectedActor.name}
                                 </h2>
 

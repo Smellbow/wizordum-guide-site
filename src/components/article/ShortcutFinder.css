@@ -125,6 +125,17 @@
     }
 
     @media (max-width: 42rem) {
+
+
+        .guide-page .shortcut-list {
+            max-height: 60vh;
+            max-height: min(60dvh, 32rem);
+            padding-inline-end: var(--space-2);
+            overflow-y: auto;
+            scrollbar-gutter: stable;
+            overscroll-behavior: contain;
+        }
+
         .shortcut-item {
             grid-template-columns: 1fr;
             gap: var(--space-3);
