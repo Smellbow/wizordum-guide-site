@@ -1110,10 +1110,11 @@ const actors = [
     category: 'Logic',
     summary: 'Returns compatible actors or logic to a reusable state.',
     description:
-      'Use Reset in mechanisms or puzzles that need to be attempted or activated again.',
+      'Use Reset to... reset another actor :)',
     example:
-      'Reset a timed switch puzzle after the player runs out of time.',
+      'Reset a switch connected to an elevator sequence. (see the elevator guide!)',
     parameters: [],
+    image: 'actors/reset.png',
     tags: [
       'reset',
       'restart',
@@ -1130,10 +1131,11 @@ const actors = [
     category: 'Geometry',
     summary: 'Changes the active layer of compatible wall geometry.',
     description:
-      'Use Wall Layer Setter when scripted events need to alter which wall layer is being displayed or used.',
+      'Up and Down variants exist, wall setters will move a wall part to another layer as selected in its parameters. This allows blocks to move into places they would not normally be allowed in the editor. You can move blocks above and below the normal layer limits. If you dont specify an up/down value you can push walls into other walls!',
     example:
-      'Change a room’s wall presentation after a magical event occurs.',
-    parameters: [],
+      'Make a tower look larger than should be possble by setting blocks to move up out of normal editor bounds',
+    parameters: [{name: 'Up/Down', description: 'How many spaces to move up or down'},{name: 'Forward', description: 'How many spaces to move forward in the arrow direction, use SHIFT + Q or E to rotate'}],
+    image: 'actors/wallsetter.png',
     tags: [
       'wall',
       'layer',
@@ -1154,6 +1156,7 @@ const actors = [
     example:
       'Carry the player through a mine while hazards and scenery pass alongside the route.',
     parameters: [],
+    image: 'actors/minecart.png',
     tags: [
       'minecart',
       'cart',
@@ -1170,10 +1173,11 @@ const actors = [
     category: 'Movement',
     summary: 'Provides the moving barrel ride element.',
     description:
-      'Use Barrel Ride for a scripted journey using the game’s barrel-riding behaviour.',
+      'Yeh the 2D icon is a minecart, but its a barrel in game -Use Barrel Ride for a scripted journey using the game’s barrel-riding behaviour. use connected nodes to plot a bath the barrel will take when activated.',
     example:
       'Create an alternative transport sequence through a dangerous area.',
     parameters: [],
+    image: 'actors/barrel.png',
     tags: [
       'barrel',
       'ride',
@@ -1189,10 +1193,11 @@ const actors = [
     category: 'Movement',
     summary: 'Controls compatible minecart or ride behaviour.',
     description:
-      'Use this actor to configure and coordinate a minecart sequence.',
+      'Use this actor to configure and coordinate a minecart sequence. Points on the track use nodes, connect from a node to a controller to alter the speed of the cart at that stage. See the minecart guide!',
     example:
-      'Connect the controller to the actors required to start and operate a minecart journey.',
+      'Slow the player down to appreciate your hard work or whisk them away at speed',
     parameters: [],
+    image: 'actors/minecartspeed.png',
     tags: [
       'minecart',
       'controller',
@@ -1209,10 +1214,11 @@ const actors = [
     category: 'Movement',
     summary: 'Moves a large configured piece of map geometry.',
     description:
-      'Use Massive Mover for substantial scripted movement involving structures or grouped geometry.',
+      'Use Massive Mover for substantial scripted movement involving structures or grouped geometry. you can move an entire structure in one go if it sits within the massive movers bounds. Connect to a node as a destination and move to that node on trigger.',
     example:
       'Move a large section of a room to reveal a new route.',
-    parameters: [],
+    parameters: [{name: 'Size X', description: 'How many spaces to move up or down'},{name: 'Sze Y', description: 'How many spaces to move up or down'}],
+    image:'actors/massivemove.png',
     tags: [
       'massive',
       'move',
@@ -1229,10 +1235,11 @@ const actors = [
     category: 'Geometry',
     summary: 'Destroys a large configured piece of map geometry.',
     description:
-      'Use Massive Destroyer for major scripted destruction involving grouped or substantial geometry.',
+      'Use Massive Destroyer for major scripted destruction involving grouped or substantial geometry. Height is calculated from the layer where the Massive Destroyer is placed, up to the top-most layer',
     example:
       'Destroy a large structure during a dramatic level event.',
-    parameters: [],
+    parameters: [{name: 'Size X', description: 'How many spaces to move up or down'},{name: 'Sze Y', description: 'How many spaces to move up or down'}],
+    image: 'actors/massivedest.png',
     tags: [
       'massive',
       'destroy',
@@ -1249,10 +1256,11 @@ const actors = [
     category: 'Audio and Visual',
     summary: 'Controls compatible particle effects.',
     description:
-      'Use Particle Controller to start, stop, or otherwise coordinate configured particle behaviour.',
+      'The Particle Controller is used to toggle Smoke and Mist effects on and off during gameplay. Unlike the standard decorative versions (which always emit particles), the Particle Controller version can be activated and deactivated dynamically.',
     example:
-      'Enable a group of magical particles when a portal becomes active.',
-    parameters: [],
+      'Enable force rays whilst moving the player in some magic trap',
+    parameters: [{name: 'Type', description: 'Type of effect to show'},{name: 'State', description: 'Start on or off'}],
+    image: 'actors/partcont.png',
     tags: [
       'particle',
       'controller',
@@ -1272,7 +1280,8 @@ const actors = [
       'Use Particle Spawner to produce smoke, magic, sparks, or other supported particle effects.',
     example:
       'Spawn dust and debris while a wall collapses.',
-    parameters: [],
+    parameters: [{name: 'Type', description: 'Type of particle to spawn'},{name: 'Amount', description: 'How much to spawn'}],
+    image:'actors/partspawn.png',
     tags: [
       'particle',
       'spawn',
@@ -1292,8 +1301,9 @@ const actors = [
     description:
       'Use Interval for effects and hazards that need to repeat automatically.',
     example:
-      'Repeatedly activate a Flame Breather with a pause between each burst.',
-    parameters: [],
+      'Repeatedly activate a series of wall movers.',
+    parameters: [{name: 'Time', description: 'How often to trigger'}],
+    image: 'actors/interval.png',
     tags: [
       'interval',
       'repeat',
@@ -1310,10 +1320,11 @@ const actors = [
     category: 'Audio and Visual',
     summary: 'Moves a texture across its surface over time.',
     description:
-      'Use Texture Scroller to suggest flowing liquid, machinery, magical energy, and other movement.',
+      'Use Texture Scroller to make the selected texture scroll horizontally',
     example:
-      'Scroll a water or conveyor texture in the direction of travel.',
+      'Scroll a texture to give the illusion of motion outside a window',
     parameters: [],
+    image: 'actors/texturescroll.png',
     tags: [
       'texture',
       'scroll',
@@ -1331,10 +1342,11 @@ const actors = [
     category: 'Creature and Loot',
     summary: 'Helps creatures navigate difficult map geometry.',
     description:
-      'Use this actor where creatures need additional assistance moving through a particular part of the map.',
+      'Works together with the nav node to guide the Goblin Copter enemy along a path. The Goblin Copter will fly toward one of the connected Navigation Nodes, and if there are multiple options, it may change its destination over time. SETUP - Place a Goblin Copter, one Creature Navigation Assist, and at least one Navigation Node. Connect the Creature Navigation Assist to both the Goblin Copter and all Navigation Nodes.Trigger the setup using an activator like a Player Trigger, Switch, etc., and connect it to the Creature Navigation Assist.',
     example:
-      'Add navigation assistance near geometry where enemies otherwise struggle to follow the intended route.',
+      'Setup an ambush in an open area with goblin copters to harass the player',
     parameters: [],
+    image: 'actors/navigate.png',
     tags: [
       'creature',
       'enemy',
@@ -1346,35 +1358,16 @@ const actors = [
     related: ['creature-navigation-node', 'creature-move-to', 'waypoint'],
   },
   {
-    id: 'creature-navigation-node',
-    name: 'Creature Navigation Node',
-    category: 'Creature and Loot',
-    summary: 'Provides a navigation point for creature movement.',
-    description:
-      'Use navigation nodes to help define intended creature routes through complicated spaces.',
-    example:
-      'Place nodes along the route an enemy should follow around an obstacle.',
-    parameters: [],
-    tags: [
-      'creature',
-      'enemy',
-      'navigation',
-      'node',
-      'pathfinding',
-      'route',
-    ],
-    related: ['creature-navigation-assist', 'creature-move-to', 'waypoint'],
-  },
-  {
     id: 'music-setter',
     name: 'Music Setter',
     category: 'Audio and Visual',
     summary: 'Changes the music used by the level.',
     description:
-      'Use Music Setter when a particular event or area should switch to another music track.',
+      'Use Music Setter when a particular event or area should switch to another music track. Must be triggered',
     example:
-      'Change to combat music as the player enters a major encounter.',
-    parameters: [],
+      'Leaving a village area and entering a lava filled mountain alternate music kicks in',
+    parameters: [{name: 'Track', description: 'The music to be played on trigger'}],
+    image: 'actors/music.png',
     tags: [
       'music',
       'track',
@@ -1391,10 +1384,11 @@ const actors = [
     category: 'Audio and Visual',
     summary: 'Controls the playback state of level music.',
     description:
-      'Use Music Control for supported changes to currently configured music playback.',
+      'Some music tracks in the game have multiple layers, ranging from calm to intense variations. The Music Control object acts as a trigger that changes the music layer.',
     example:
       'Coordinate a music change with the beginning or end of a scripted sequence.',
     parameters: [],
+    image: 'actors/musiccontrol.png',
     tags: [
       'music',
       'control',
@@ -1411,10 +1405,11 @@ const actors = [
     category: 'Audio and Visual',
     summary: 'Changes the level background when activated.',
     description:
-      'Use Background Setter to alter the distant backdrop as the player enters another environment or event.',
+      'Use Background Setter to alter the distant backdrop as the player enters another environment or event. Must be triggered. Works best with ambient triggers at the same time',
     example:
       'Change the background when the player travels from an interior into an outdoor area.',
-    parameters: [],
+    parameters: [{name: 'Type', description: 'Select the skybox to change to'}],
+    image: 'actors/background.png',
     tags: [
       'background',
       'sky',
@@ -1431,10 +1426,11 @@ const actors = [
     category: 'Movement',
     summary: 'Creates a rune-themed portal for travel or scripted use.',
     description:
-      'Use Rune Portal for magical transitions between linked parts of the map.',
+      'The Rune Portal acts as a barrier or "locked door" that blocks passage until it’s unlocked. When activated (unlocked), it plays a unique animation and triggers camera shakes (earthquakes) for dramatic effect. To unlock the Rune Portal, connect an activator such as a Player Trigger, Switch, or similar to it.',
     example:
       'Activate a portal after the player completes a puzzle, allowing travel to the next area.',
     parameters: [],
+    image: 'actors/portal.png',
     tags: [
       'rune',
       'portal',
