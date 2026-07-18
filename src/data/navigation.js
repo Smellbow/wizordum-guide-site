@@ -48,6 +48,10 @@ const navigationGroups = [
         to: '/guides/wall-towers',
       },
       {
+        label: 'Elevators',
+        to: '/guides/elevator',
+      },
+      {
         label: 'Minecarts',
         to: '/guides/minecarts',
       },

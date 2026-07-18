@@ -985,7 +985,7 @@ const actors = [
     category: 'Essential',
     summary: 'Creates an automatic save point.',
     description:
-      'Use Autosave before important encounters or after meaningful sections of progression. Try to add a few of these in your maps to prevent total restarts that may frustrate players. Connect a trigger to this actor to cause an autosave.',
+      'Use Autosave before important encounters or after meaningful sections of progression. Try to add a few of these in your maps to prevent total restarts that may frustrate players. Connect a trigger to this actor to cause an autosave. It is best to use a short delay before the autosave from the trigger point.',
     example:
       'Trigger an autosave immediately before the player enters a boss arena.',
     parameters: [],
@@ -1008,7 +1008,7 @@ const actors = [
       'Use Waypoints to help guide the player on the minimap, The flashing blue points that help indicate a correct path or next intended route are controlled by these. Connect them to each other in sequence and trigger them as needed.',
     example:
       'Keep the player on track by placing waypoints throughout the map',
-    parameters: [{name: 'No Trigger', description: 'The waypoint will be flagged without needing a trigger action to do so'}],
+    parameters: [{name: 'No Trigger', description: 'The waypoint must be triggered by something other than direct player contact'}],
     image: 'actors/wheyypoint.png',
     tags: [
       'waypoint',
