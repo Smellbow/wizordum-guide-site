@@ -478,6 +478,7 @@ const actors = [
     example:
       'Remove a concealed wall after the player solves a switch puzzle.',
     parameters: [],
+    image: 'actors/walldestroy.png',
     tags: [
       'wall',
       'destroy',
@@ -494,10 +495,11 @@ const actors = [
     category: 'Geometry',
     summary: 'Creates a wall that can move when pushed or activated.',
     description:
-      'Use Push Wall for classic secret walls and movable pieces of level geometry.',
+      'Use Push Wall for classic secret walls and movable pieces of level geometry. Note that unless the wall ends in a spot that prevents it, it can be pushed again!',
     example:
       'Hide treasure behind a wall that slides away when the player pushes it.',
     parameters: [],
+    image: 'actors/pushwall.png',
     tags: [
       'push',
       'wall',
@@ -517,7 +519,8 @@ const actors = [
       'Use Wall Lower to reveal passages, enemies, items, or changes in room geometry.',
     example:
       'Lower the walls surrounding an arena after all enemies have been defeated.',
-    parameters: [],
+    parameters: [{name: 'Move', description: 'How many spaces will this move'},{name: 'Speed', description: 'How fast will it move, can be instant!'}],
+    image: 'actors/wallLower.png',
     tags: [
       'wall',
       'lower',
@@ -537,7 +540,8 @@ const actors = [
       'Use Wall Rise to create barriers, traps, arena boundaries, or changing room layouts.',
     example:
       'Raise walls behind the player when an encounter begins.',
-    parameters: [],
+    parameters: [{name: 'Move', description: 'How many spaces will this move'},{name: 'Speed', description: 'How fast will it move, can be instant!'}],
+    image: 'actors/wallRise.png',
     tags: [
       'wall',
       'rise',
@@ -554,10 +558,11 @@ const actors = [
     category: 'Movement',
     summary: 'Moves wall geometry along a configured path.',
     description:
-      'Use Wall Mover for sliding structures and other wall movement that is more involved than simply raising or lowering.',
+      'Use Wall Mover for sliding structures and other wall movement that is more involved than simply raising or lowering. Rotate the actor to changes which direction the mover will go. The arrow points the way!',
     example:
       'Create a repeatedly moving wall as part of a timing puzzle.',
-    parameters: [],
+    parameters: [{name: 'Move', description: 'How many spaces will this move'},{name: 'Speed', description: 'How fast will it move, can be instant!'}],
+    image: 'actors/wallMover.png',
     tags: [
       'wall',
       'move',
@@ -574,10 +579,11 @@ const actors = [
     category: 'Geometry',
     summary: 'Changes the height of a liquid surface.',
     description:
-      'Use Liquid Riser to flood or drain an area as part of a puzzle or scripted event.',
+      'Use Liquid Riser to flood or drain an area as part of a puzzle or scripted event. One Rise will impact all connected liquid spaces',
     example:
-      'Raise water after a switch is activated so the player can reach a higher passage.',
+      'Raise water after a switch is activated so the player can cross a space',
     parameters: [],
+    image: 'actors/liquidRise.png',
     tags: [
       'liquid',
       'water',
@@ -595,10 +601,11 @@ const actors = [
     category: 'Movement',
     summary: 'Connects locations through passage behaviour.',
     description:
-      'Use a Passage where the player needs to move between linked parts of the map using the actor’s configured transition.',
+      'Use a Passage where the player needs to move between linked parts of the map using the actor’s configured transition. Highlight the passage and press TAB to access the settings for its destination. Here you can set light levels, weather, fog and sounds. Try to ensure each passage, if two way matches your areas on each end!',
     example:
       'Connect two separated areas that should behave as parts of the same route.',
-    parameters: [],
+    parameters: [{name: 'Up', description: 'The player must look up to use'},{name: 'Down', description: 'The player must look down to use'}],
+    image: 'actors/passage.png',
     tags: [
       'passage',
       'travel',
@@ -615,10 +622,11 @@ const actors = [
     category: 'Movement',
     summary: 'Moves the player between linked locations.',
     description:
-      'Use Teleport to transfer the player instantly to another position in the map.',
+      'Use Teleport to transfer the player instantly to another position in the map. They can be two way or one way. Like the passage, pressing TAB whilst highlighting the teleport point will allow you to set audio, lighting, sound at the destination. The player will exit the teleporter facing the direction of the arrow.',
     example:
       'Create a magical portal that transports the player to a hidden chamber.',
-    parameters: [],
+    parameters: [{name: 'Off', description: 'Set a teleporter to be disabled until some other trigger activates it'}],
+    image: 'actors/teleport.png',
     tags: [
       'teleport',
       'portal',
@@ -635,10 +643,11 @@ const actors = [
     category: 'Creature and Loot',
     summary: 'Raises a creature into the playable area.',
     description:
-      'Use Creature Riser for enemies that emerge from floors, pits, or concealed spaces during an encounter.',
+      'Some enemies come in two variants: the default standing variant and the "Hidden" variant. A hidden enemy is one that isnt visible (like Tentacle and Undead) or appears dead (like Skeleton Swordsman) until you approach them, at which point they become alive or visible, The Creature Rise object can be used to "rise" these enemies using an activator. Note that enemies can still be risen by the player approaching them (see the parameters below).',
     example:
       'Raise several enemies into an arena when the player takes an important item.',
-    parameters: [],
+    parameters: [{name: 'Exclusive', description: 'Will not rise at all unless activated by a trigger'}],
+    image: 'actors/creatureRiser.png',
     tags: [
       'creature',
       'enemy',
@@ -655,10 +664,11 @@ const actors = [
     category: 'Logic',
     summary: 'Counts defeated creatures before activating another actor.',
     description:
-      'Use Kill Counter when progression depends on the player defeating a group of enemies.',
+      'Use Kill Counter when progression depends on the player defeating a group of enemies. Connect the kill counter to monsters to count, the total will be the number connected, Then connect spawns/triggers you want to fire when the count is reached',
     example:
       'Lower the exit wall after every enemy in an arena has been killed.',
     parameters: [],
+    image: 'actors/killcount.png',
     tags: [
       'kill',
       'counter',
@@ -676,10 +686,11 @@ const actors = [
     category: 'Combat and Hazards',
     summary: 'Creates a spike hazard that attacks from the floor.',
     description:
-      'Use Ground Spikes to create timed traps and dangerous floor areas.',
+      'Use Ground Spikes to create timed traps and dangerous floor areas. There are matching textures if desired for these. Press SPACE to set a difficulty to appear on',
     example:
       'Connect the spikes to an Interval actor to produce a repeating trap.',
-    parameters: [],
+    parameters: [{name: 'Delay', description: 'The time between poking!'},{name: 'Speed', description: 'The speed of the poking!'}],
+    image: 'actors/groundspike.png',
     tags: [
       'ground',
       'floor',
@@ -698,8 +709,9 @@ const actors = [
     description:
       'Use Wall Spikes in narrow passages, trap rooms, and other dangerous areas.',
     example:
-      'Activate them when the player crosses a concealed trigger in a corridor.',
-    parameters: [],
+      'The player must run a gauntlet of traps in the dungeon',
+    parameters: [{name: 'Delay', description: 'The time between poking!'},{name: 'Speed', description: 'The speed of the poking!'}],
+    image: 'actors/wallspike.png',
     tags: [
       'wall',
       'spikes',
@@ -716,10 +728,11 @@ const actors = [
     category: 'Combat and Hazards',
     summary: 'Creates a spike hazard that attacks from above.',
     description:
-      'Use Ceiling Spikes to threaten the player from overhead or as part of a crushing trap.',
+      'Use Ceiling Spikes to threaten the player from overhead, who looks up?',
     example:
       'Trigger ceiling spikes after the player enters a treasure alcove.',
-    parameters: [],
+    parameters: [{name: 'Delay', description: 'The time between poking!'},{name: 'Speed', description: 'The speed of the poking!'}],
+    image: 'actors/ceilingspike.png',
     tags: [
       'ceiling',
       'spikes',
@@ -738,8 +751,9 @@ const actors = [
     description:
       'Use Wall Turret to attack the player from fixed positions and create pressure in combat spaces.',
     example:
-      'Place turrets overlooking a room where the player must move between cover.',
-    parameters: [],
+      'Once the player collects a key, trigger wall turrets to complicated their escape!',
+    parameters: [{name: 'Interval', description: 'Time between projectiles from the turret'},{name: 'Delay', description: 'Start after the map loads by X amount'}],
+    image: 'actors/wallturret.png',
     tags: [
       'wall',
       'turret',
@@ -757,10 +771,11 @@ const actors = [
     category: 'Combat and Hazards',
     summary: 'Creates a moving or rotating bar of flame.',
     description:
-      'Use Flame Bar as a timing and movement hazard in corridors, arenas, and puzzle rooms.',
+      'Use Flame Bar as a timing and movement hazard in corridors, arenas, and puzzle rooms. Has a vertical version also',
     example:
       'Make the player time their movement through a room containing several rotating flame bars.',
-    parameters: [],
+    parameters: [{name: 'Reverse', description: 'Change rotation direction'}],
+    image: 'actors/flamebar.png',
     tags: [
       'flame',
       'fire',
@@ -778,10 +793,11 @@ const actors = [
     category: 'Combat and Hazards',
     summary: 'Creates a moving cutting hazard.',
     description:
-      'Use Cutter to build traps that require careful positioning or timed movement.',
+      'Use Cutter to build traps that require careful positioning or timed movement. Cutters will move along a path if defined by pointing it to node actors, make the connection in order of the path desired.',
     example:
       'Place cutters along a narrow route that the player must cross between movements.',
     parameters: [],
+    image: 'actors/cutter.png',
     tags: [
       'cutter',
       'blade',
@@ -799,10 +815,11 @@ const actors = [
     category: 'Combat and Hazards',
     summary: 'Creates rolling boulders or equivalent configured objects.',
     description:
-      'Use Boulder Spawner to produce moving hazards that travel through the map.',
+      'Use Boulder Spawner to produce moving hazards that travel through the map. Boulders drop as they spawn so position accordingly. You can decativate them on level start and then trigger them later. Hook up a level start flag and a deactivator.',
     example:
       'Release a boulder down a corridor when the player crosses a trigger.',
-    parameters: [],
+    parameters: [{name: 'Interval', description: 'Time between boulders appearing'},{name: 'Delay', description: 'Start after the map loads by X amount, setup staggering.'}],
+    image: 'actors/boulder.png',
     tags: [
       'boulder',
       'rock',
@@ -822,8 +839,9 @@ const actors = [
     description:
       'Use Flame Breather for periodic fire traps and dangerous environmental decorations.',
     example:
-      'Use an Interval actor to fire repeated flame bursts across a passage.',
+      'Set them as deactivated at level start then on player trigger FIRE! BURN THEM ALL! *ahem*',
     parameters: [],
+    image: 'actors/flamebreath.png',
     tags: [
       'flame',
       'fire',
