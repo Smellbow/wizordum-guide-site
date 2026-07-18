@@ -1,0 +1,98 @@
+name: Guide correction or suggestion
+description: Report an error, suggest an improvement, or contribute information to the Wizordum Mapping Guide.
+title: "[Guide contribution]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the Wizordum Mapping Guide!
+
+        Please include enough detail for the suggestion to be checked in the editor. You can also drag screenshots into any large text field.
+
+  - type: dropdown
+    id: contribution-type
+    attributes:
+      label: Contribution type
+      description: What kind of contribution are you submitting?
+      options:
+        - Correction to existing information
+        - Additional information
+        - New guide suggestion
+        - Actor reference update
+        - Shortcut or interface update
+        - Website problem
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: affected-page
+    attributes:
+      label: Affected page or actor
+      description: Which guide page, actor, or part of the website does this concern?
+      placeholder: "For example: Basic Walls, Player Trigger, or Resources"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-problem
+    attributes:
+      label: What needs changing?
+      description: Explain what is incorrect, missing, unclear, or not working.
+      placeholder: Describe the existing problem as clearly as you can.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-change
+    attributes:
+      label: Suggested correction or improvement
+      description: Tell us what the guide should say or how it could be improved.
+      placeholder: Add corrected information, replacement wording, or your proposed idea.
+    validations:
+      required: true
+
+  - type: textarea
+    id: testing
+    attributes:
+      label: How was this verified?
+      description: Explain how you tested this in the Wizordum editor or game.
+      placeholder: Include relevant editor settings, steps, game version, or observed behaviour.
+    validations:
+      required: false
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources or references
+      description: Add links to official guides, discussions, videos, screenshots, or other useful references.
+      placeholder: Paste references here. Screenshots can be dragged into this field.
+    validations:
+      required: false
+
+  - type: input
+    id: contributor-credit
+    attributes:
+      label: Contributor credit
+      description: How should you be credited if this contribution is used?
+      placeholder: GitHub username, community name, or “Anonymous”
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: permission
+    attributes:
+      label: Permission
+      description: Please confirm that the contribution may be incorporated into the public guide.
+      options:
+        - label: I have permission to share this material and allow it to be adapted for the Wizordum Mapping Guide.
+          required: true
+
+  - type: checkboxes
+    id: conduct
+    attributes:
+      label: Community conduct
+      options:
+        - label: I will keep discussion constructive and respectful.
+          required: true
