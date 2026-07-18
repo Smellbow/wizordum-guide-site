@@ -1,0 +1,57 @@
+@layer components {
+    .contribute-page {
+        display: grid;
+        max-width: 60rem;
+        gap: clamp(var(--space-5), 6vw, var(--space-7));
+    }
+
+    .contribute-header {
+        display: grid;
+        max-width: 46rem;
+        gap: var(--space-3);
+    }
+
+    .contribute-header h1,
+    .contribute-header p {
+        margin: 0;
+    }
+
+    .contribute-header p {
+        color: var(--color-text-muted);
+        font-size: 1.1rem;
+    }
+
+    .contribution-card {
+        display: grid;
+        max-width: 48rem;
+        gap: var(--space-4);
+        padding: clamp(var(--space-4), 5vw, var(--space-7));
+        border: 1px solid var(--color-border);
+        border-inline-start: 0.35rem solid var(--color-accent);
+        border-radius: var(--radius-large);
+        background: var(--color-surface);
+        box-shadow: var(--shadow-raised);
+    }
+
+    .contribution-card h2,
+    .contribution-card p {
+        margin: 0;
+    }
+
+    .contribution-card p {
+        color: var(--color-text-muted);
+    }
+
+    .contribution-card .button {
+        justify-self: start;
+        margin-block-start: var(--space-2);
+    }
+
+    @media (max-width: 36rem) {
+        .contribution-card .button {
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+}
