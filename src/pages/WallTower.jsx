@@ -2,6 +2,7 @@ import GuideHeader from '../components/article/GuideHeader'
 import GuideImage from '../components/article/GuideImage'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 import publicAsset from '../utils/publicAsset'
+import GuideNote from '../components/article/GuideNote'
 import './GuidePage.css'
 
 function WallTower() {
@@ -53,6 +54,12 @@ function WallTower() {
                 <p>The player trigger activates the wall tower but also at the same time activates a timer. On the timers end it activates another deactivator also connected to the wall tower.</p>
                 <p>This allows the wall tower to complete its path once upon player trigger and then stop in place. With some careful setup this can be used to create all manner of moving blocks, secret doors and terrain shifting actions!</p>
                 <p>In this example, upon player trigger the wall with the tower actor wil move forward and then shift to the players left and stop. An alternate to the usual push wall or break wall actions.</p>
+
+                <GuideNote title="Parameters">
+                    <p>
+                        The wall tower has parameter you can set to enable it to also move blocks above it so you can move... towers 🗼
+                    </p>
+                </GuideNote>
             </section>
 
 

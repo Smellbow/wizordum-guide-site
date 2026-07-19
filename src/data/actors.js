@@ -1441,6 +1441,107 @@ const actors = [
     ],
     related: ['teleport', 'visual-effect', 'particle-controller'],
   },
+  {
+    id: 'message',
+    name: 'Message',
+    category: 'Audio and Visual',
+    summary: 'Creates a rune-themed portal for travel or scripted use.',
+    description:
+      'When triggered a text message will be displayed on screen, Hover the actor and press TAB to enter the text',
+    example:
+      'When the player enters a new area display some text about their new surroundings',
+    parameters: [],
+    image: 'actors/message.png',
+    tags: [
+      'message',
+      'text',
+      'popup',
+      'alert',
+      'story',
+    ],
+    related: ['player-trigger'],
+  },
+    {
+    id: 'skulls',
+    name: 'Skull Pedestal',
+    category: 'Logic',
+    summary: 'An alternate to keys and locks',
+    description:
+      'If the player collects the correct skull they can place it on the pedestal, this will then trigger any connected actors as desired',
+    example:
+      'A locked gate cannot be moved until the correct skull is placed',
+    parameters: [],
+    image: 'actors/skulls.png',
+    tags: [
+      'Key',
+      'Skull',
+      'pedestal',
+      'logic',
+    ],
+    related: ['player-trigger', 'switch', 'relay'],
+  },
+  {
+    id: 'keys',
+    name: 'Keys, Locks & Gates',
+    category: 'Logic',
+    summary: 'Wont budge, need a key',
+    description:
+      'Keys can prevent progression until obtained by using blocking gates or more complex structures with locks. A player simply interacts with a gate if they have the right key to progres. A lock actor will trigger other actors connected when the correct key is used. This can be used to make any manner of other sequences fire.',
+    example:
+      'A large wall moves apart after the player enters the correct key triggering a series of wall movers and sound fx',
+    parameters: [],
+    image: 'actors/keys.png',
+    tags: [
+      'Key',
+      'logic',
+      'gate',
+      'lock',
+      'door'
+    ],
+    related: ['player-trigger', 'switch', 'relay'],
+  },
+  {
+    id: 'fancyshrine',
+    name: 'Shrine - Special Ability',
+    category: 'Creature and Loot',
+    summary: 'Powerful magic!',
+    description:
+      'This shrine grants the player their middle mouse button ultimate spell!',
+    example:
+      'Prepare the player for a large fight by presenting this shrine',
+    parameters: [],
+    image: 'actors/fancyshrine.png',
+    tags: [
+      'Spells;',
+      'Spell;',
+      'Magic',
+      'Shrine',
+      'Ability',
+      'Cast'
+    ],
+    related: ['spell'],
+  },
+  {
+    id: 'spell',
+    name: 'Magic Spells',
+    category: 'Creature and Loot',
+    summary: 'Whats a wizard without some spells',
+    description:
+      'This shrine grants the player their middle mouse button ultimate spell!',
+    example:
+      'Prepare the player for a large fight by presenting this shrine',
+    parameters: [{name: 'Spell 1', description: 'Repulsion'},{name: 'Spell 2', description: 'Hellfire'},{name: 'Spell 3', description: 'Holy Nova'},{name: 'Spell 4', description: 'Wizards Wrath'}],
+    image: 'actors/spell.png',
+    tags: [
+      'Spell;',
+      'Spells;',
+      'Magic',
+      'Shrine',
+      'Ability',
+      'Cast'
+    ],
+    related: ['fancyshrine'],
+  },
 ]
 
 export default actors
