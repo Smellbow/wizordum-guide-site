@@ -2,7 +2,7 @@ const actors = [
   {
     id: 'enemy-spawner',
     name: 'Enemy Spawner',
-    category: 'Objects',
+    category: 'Creature and Loot',
     summary: 'Creates enemies when activated by another actor.',
     description:
       'Use an Enemy Spawner when enemies need to appear after the player enters an area, activates a switch, or completes another event.',
@@ -36,7 +36,7 @@ const actors = [
   {
     id: 'door',
     name: 'Door',
-    category: 'Objects',
+    category: 'Geometry',
     summary: 'Creates an interactive or triggered doorway.',
     description:
       'Doors can control access, divide encounters, and reveal new parts of a map. Some doors can be triggered or require certain keys As labelled.',
@@ -164,7 +164,7 @@ const actors = [
       'completion',
       'trigger',
     ],
-    related: ['player-trigger', 'secret-level-end'],
+    related: ['player-trigger', 'level-end-trigger'],
   },
   {
     id: 'invisible-wall',
@@ -424,7 +424,13 @@ const actors = [
       'sequence',
       'link',
     ],
-    related: ['relay', 'timer', 'counter'],
+    related: [
+      'cutter',
+      'minecart',
+      'treasure-goblin',
+      'massive-mover',
+      'teleport',
+    ],
   },
   {
     id: 'earthquake',
@@ -635,7 +641,7 @@ const actors = [
       'destination',
       'warp',
     ],
-    related: ['passage', 'rune-portal', 'visual-effect'],
+    related: ['passage', 'rune-portal', 'visual-effect', 'node'],
   },
   {
     id: 'creature-riser',
@@ -807,7 +813,7 @@ const actors = [
       'damage',
       'moving',
     ],
-    related: ['flame-bar', 'interval', 'player-trigger'],
+    related: ['flame-bar', 'interval', 'player-trigger', 'node'],
   },
   {
     id: 'boulder-spawner',
@@ -1018,7 +1024,7 @@ const actors = [
       'position',
       'movement',
     ],
-    related: ['creature-move-to', 'creature-navigation-node'],
+    related: ['creature-move-to'],
   },
   {
     id: 'creature-move-to',
@@ -1039,7 +1045,7 @@ const actors = [
       'waypoint',
       'path',
     ],
-    related: ['waypoint', 'creature-navigation-node', 'enemy-spawner'],
+    related: ['waypoint', 'enemy-spawner'],
   },
   {
     id: 'creature-glue',
@@ -1165,7 +1171,7 @@ const actors = [
       'track',
       'movement',
     ],
-    related: ['minecart-controller', 'barrel-ride'],
+    related: ['minecart-controller', 'barrel-ride', 'node'],
   },
   {
     id: 'barrel-ride',
@@ -1227,7 +1233,7 @@ const actors = [
       'large',
       'scripted',
     ],
-    related: ['massive-destroyer', 'wall-mover', 'earthquake'],
+    related: ['massive-destroyer', 'wall-mover', 'earthquake', 'node'],
   },
   {
     id: 'massive-destroyer',
@@ -1355,7 +1361,7 @@ const actors = [
       'movement',
       'assist',
     ],
-    related: ['creature-navigation-node', 'creature-move-to', 'waypoint'],
+    related: ['creature-move-to', 'waypoint'],
   },
   {
     id: 'music-setter',
@@ -1445,7 +1451,7 @@ const actors = [
     id: 'message',
     name: 'Message',
     category: 'Audio and Visual',
-    summary: 'Creates a rune-themed portal for travel or scripted use.',
+    summary: 'Displays a text message when activated.',
     description:
       'When triggered a text message will be displayed on screen, Hover the actor and press TAB to enter the text',
     example:
@@ -1459,7 +1465,11 @@ const actors = [
       'alert',
       'story',
     ],
-    related: ['player-trigger'],
+    related: [
+      'player-trigger',
+      'relay',
+      'level-start-activator',
+    ],
   },
     {
     id: 'skulls',
@@ -1473,12 +1483,16 @@ const actors = [
     parameters: [],
     image: 'actors/skulls.png',
     tags: [
-      'Key',
-      'Skull',
+      'key',
+      'skull',
       'pedestal',
       'logic',
     ],
-    related: ['player-trigger', 'switch', 'relay'],
+    related: [
+      'keys',
+      'switch',
+      'relay',
+    ],
   },
   {
     id: 'keys',
@@ -1492,16 +1506,21 @@ const actors = [
     parameters: [],
     image: 'actors/keys.png',
     tags: [
-      'Key',
+      'key',
       'logic',
       'gate',
       'lock',
       'door'
     ],
-    related: ['player-trigger', 'switch', 'relay'],
+    related: [
+      'door',
+      'switch',
+      'relay',
+      'wall-mover',
+    ],
   },
   {
-    id: 'fancyshrine',
+    id: 'fancy-shrine',
     name: 'Shrine - Special Ability',
     category: 'Creature and Loot',
     summary: 'Powerful magic!',
@@ -1512,12 +1531,12 @@ const actors = [
     parameters: [],
     image: 'actors/fancyshrine.png',
     tags: [
-      'Spells;',
-      'Spell;',
-      'Magic',
-      'Shrine',
-      'Ability',
-      'Cast'
+      'spells',
+      'spell',
+      'magic',
+      'shrine',
+      'ability',
+      'cast'
     ],
     related: ['spell'],
   },
@@ -1530,17 +1549,88 @@ const actors = [
       'This shrine grants the player their middle mouse button ultimate spell!',
     example:
       'Prepare the player for a large fight by presenting this shrine',
-    parameters: [{name: 'Spell 1', description: 'Repulsion'},{name: 'Spell 2', description: 'Hellfire'},{name: 'Spell 3', description: 'Holy Nova'},{name: 'Spell 4', description: 'Wizards Wrath'}],
+    parameters: [{name: 'Spell 1', description: 'Cleric - Repulsion | Sorceress - Blink | Blood Mage - Blood Rune'},{name: 'Spell 2', description: 'Cleric - Hellfire | Sorceress - Frost Breath | Blood Mage - Crimson Harvest'},{name: 'Spell 3', description: 'Cleric - Holy Nova | Sorceress - Arcane Shield | Blood Mage - Blood Fountain'},{name: 'Spell 4', description: 'Cleric - Wizards Wrath | Sorceress - Spell Haste | Blood Mage - Sanguine Sacrifice'}],
     image: 'actors/spell.png',
     tags: [
-      'Spell;',
-      'Spells;',
-      'Magic',
-      'Shrine',
-      'Ability',
-      'Cast'
+      'spell',
+      'spells',
+      'magic',
+      'shrine',
+      'ability',
+      'cast'
     ],
-    related: ['fancyshrine'],
+    related: ['fancy-shrine'],
+  },
+  {
+    id: 'treasure-goblin',
+    name: 'Treasure Goblin',
+    category: 'Creature and Loot',
+    summary: 'Its free loot',
+    description:
+      'When triggered the treasure goblin will spawn and scamper around the regions of defined nodes it has been connected to. If not killed he will vanish after a short time.',
+    example:
+      'Distract the player on their journey with some tempting mobile loot!',
+    parameters: [],
+    image: 'actors/tresgob.png',
+    tags: [
+      'goblin',
+      'treasure',
+      'loot',
+      'gold',
+      'sneaky',
+      'spawn'
+    ],
+    related: [
+      'node',
+      'enemy-spawner',
+      'creature-move-to',
+    ],
+  },
+  {
+    id: 'passable',
+    name: 'Passable',
+    category: 'Geometry',
+    summary: 'Im a ghost!',
+    description:
+      'Passable makes the block (or other shape) its placed on passable — allowing the player, projectiles, and enemies to move through it. This can be useful for creating fake walls, hidden passages, and similar effects.',
+    example:
+      'A suspect looking wall turns out to be something the player can enter for a secret',
+    parameters: [],
+    image: 'actors/passable.png',
+    tags: [
+      'secret',
+      'walk through',
+      'fake',
+      'wall',
+      'phase'
+    ],
+    related: [
+      'invisible-wall',
+      'secret-area',
+      'wall-break',
+    ],
+  },
+  {
+    id: 'liquid-stream',
+    name: 'Liquid Stream',
+    category: 'Geometry',
+    summary: 'Run river run!',
+    description:
+      'Once placed all liquids in the map will appear to "flow" in the direction the actor points',
+    example:
+      'Make a stream actually move toward a waterfall, combine with water current to move the player too ',
+    parameters: [{name: 'Speed', description: 'How fast the textures move'}],
+    image: 'actors/liquidstream.png',
+    tags: [
+      'liquid',
+      'water',
+      'stream',
+    ],
+    related: [
+      'water-current',
+      'liquid-riser',
+      'texture-scroller',
+    ],
   },
 ]
 
