@@ -18,6 +18,7 @@ import TestingMaps from './pages/TestingMaps'
 import ActorsPage from './pages/ActorsPage'
 import WallSetters from './pages/WallSetters'
 import WallTower from './pages/WallTower'
+import MineCart from './pages/minecarts'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="guides/testing-maps" element={<TestingMaps />} />
         <Route path="/guides/wall-setters" element={<WallSetters />} />
         <Route path="/guides/wall-towers" element={<WallTower />} />
+        <Route path="/guides/minecarts" element={<MineCart />} />
         <Route path="actors" element={<ActorsPage />} />
         <Route
           path="guides/:guideSlug"
