@@ -69,7 +69,7 @@
     }
 
     .nav-dropdown a[aria-current='page']::before {
-        content: '→ ';
+        content: '🧙‍♂️✨';
         color: var(--color-accent);
         font-weight: 900;
     }

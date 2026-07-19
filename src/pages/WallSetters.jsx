@@ -30,7 +30,7 @@ function WallSetters() {
                 title="Wall Setters"
                 summary="Go bigger!"
                 author="Smellbow"
-                published="2026-07-16"
+                published="2026-07-19"
             />
             <OnThisPage items={pageSections} />
 
