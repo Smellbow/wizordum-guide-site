@@ -19,5 +19,34 @@
         margin: 0;
     }
 
+    .ogre-title {
+        position: relative;
+        width: fit-content;
+        max-width: 100%;
+        border-radius: 0.4em;
+    }
 
+    .orbiting-head {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        offset-path: border-box;
+        offset-rotate: auto;
+        opacity: 1;
+        animation: move 10s linear infinite;
+    }
+
+    .orbiting-head--trailing {
+        animation-delay: 700ms;
+    }
+
+    @keyframes move {
+        from {
+            offset-distance: 0%;
+        }
+
+        to {
+            offset-distance: 100%;
+        }
+    }
 }
