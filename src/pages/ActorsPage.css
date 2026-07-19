@@ -36,6 +36,13 @@
         animation: move 10s linear infinite;
     }
 
+    .orbiting-head img {
+        display: block;
+        width: 100%;
+        height: auto;
+        image-rendering: pixelated;
+    }
+
     .orbiting-head--trailing {
         animation-delay: 700ms;
     }
@@ -47,6 +54,18 @@
 
         to {
             offset-distance: 100%;
+        }
+    }
+
+    @media (max-width: 36rem) {
+        .orbiting-head {
+            width: 22px;
+            height: 22px;
+            animation-duration: 4s;
+        }
+
+        .orbiting-head--trailing {
+            animation-delay: 400ms;
         }
     }
 }

@@ -16,6 +16,7 @@ import Stacking from './pages/Stacking'
 import PlaceWithTexture from './pages/PlaceWithTexture'
 import TestingMaps from './pages/TestingMaps'
 import ActorsPage from './pages/ActorsPage'
+import WallSetters from './pages/WallSetters'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="guides/copying-stacks" element={<Stacking />} />
         <Route path="guides/textured-blocks" element={<PlaceWithTexture />} />
         <Route path="guides/testing-maps" element={<TestingMaps />} />
+        <Route path="/guides/wall-setters" element={<WallSetters />} />
         <Route path="actors" element={<ActorsPage />} />
         <Route
           path="guides/:guideSlug"
