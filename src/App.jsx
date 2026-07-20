@@ -19,6 +19,7 @@ import ActorsPage from './pages/ActorsPage'
 import WallSetters from './pages/WallSetters'
 import WallTower from './pages/WallTower'
 import MineCart from './pages/minecarts'
+import Barrel from './pages/Barrel'
 
 function App() {
   return (
@@ -39,7 +40,9 @@ function App() {
         <Route path="/guides/wall-setters" element={<WallSetters />} />
         <Route path="/guides/wall-towers" element={<WallTower />} />
         <Route path="/guides/minecarts" element={<MineCart />} />
+        <Route path="/guides/barrel-rides" element={<Barrel />} />
         <Route path="actors" element={<ActorsPage />} />
+
         <Route
           path="guides/:guideSlug"
           element={<ComingSoonPage />}
