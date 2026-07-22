@@ -21,6 +21,7 @@ import WallTower from './pages/WallTower'
 import MineCart from './pages/minecarts'
 import Barrel from './pages/Barrel'
 import Elevator from './pages/Elevator'
+import WallSwap from './pages/Wallswap'
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/guides/wall-towers" element={<WallTower />} />
         <Route path="/guides/elevator" element={<Elevator />} />
         <Route path="/guides/minecarts" element={<MineCart />} />
+        <Route path="/guides/wall-swapping" element={<WallSwap />} />
         <Route path="/guides/barrel-rides" element={<Barrel />} />
         <Route path="actors" element={<ActorsPage />} />
 
