@@ -14,7 +14,9 @@ const notFoundMessages = [
     'You have wandered beyond the edge of the level.',
     'The hateforges took this page',
     'Goblins ate this page',
-    'Wheyy updated this page and broke it...'
+    'Wheyy updated this page and broke it...',
+    'The page you are looking for is in another castle.',
+    'The page you are looking for is in another dimension.',
 ]
 
 
