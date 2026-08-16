@@ -25,3 +25,6 @@ dist-ssr
 
 # temp images
 /Temp-imgs*
+
+# dev reminders 
+DEV_README.md
