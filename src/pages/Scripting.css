@@ -1,0 +1,57 @@
+@layer components {
+  .script-command-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .script-command-list li {
+    display: flex;
+    min-width: 0;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+  }
+
+  .script-command-list code,
+  .position-origin-list code,
+  #position-format > p code {
+    color: var(--color-accent-strong);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  .position-origin-list {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+  }
+
+  .position-origin-list > div {
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-inline-start: 0.3rem solid var(--color-accent);
+    border-radius: var(--radius-medium);
+  }
+
+  .position-origin-list dt {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-3);
+    font-weight: 800;
+  }
+
+  .position-origin-list dd {
+    margin: var(--space-2) 0 0;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 42rem) {
+    .script-command-list {
+      grid-template-columns: 1fr;
+    }
+  }
+}
