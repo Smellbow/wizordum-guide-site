@@ -1,45 +1,41 @@
-import { Link, useParams } from 'react-router-dom'
-import navigationGroups from '../data/navigation'
-import useDocumentTitle from '../hooks/useDocumentTitle'
+import { Link, useParams } from "react-router-dom";
+import navigationGroups from "../data/navigation";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 function ComingSoonPage() {
-    const { guideSlug } = useParams() // get the guideSlug from the URL parameters in the route from react router
-    const expectedPath = `/guides/${guideSlug}`
+  const { guideSlug } = useParams(); // get the guideSlug from the URL parameters in the route from react router
+  const expectedPath = `/guides/${guideSlug}`;
 
-    const guide = navigationGroups
-        .flatMap((group) => group.items)
-        .find((item) => item.to === expectedPath)
+  const guide = navigationGroups
+    .flatMap((group) => group.items)
+    .find((item) => item.to === expectedPath);
 
-    const title = guide?.label ?? 'Unknown guide'
+  const title = guide?.label ?? "Unknown guide";
 
-    useDocumentTitle(title)
+  useDocumentTitle(title);
 
-    if (!guide) {
-        return (
-            <section className="page-width">
-                <p>Unknown guide</p>
-                <h1>That guide does not exist</h1>
-                <Link to="/">Return home</Link>
-            </section>
-        )
-    }
-
+  if (!guide) {
     return (
-        <section className="page-width">
-            <p>Guide in progress</p>
+      <section className="page-width">
+        <p>Unknown guide</p>
+        <h1>That guide does not exist</h1>
+        <Link to="/">Return home</Link>
+      </section>
+    );
+  }
 
-            <h1>{guide.label}</h1>
+  return (
+    <section className="page-width">
+      <p>Guide in progress</p>
 
-            <p>
-                This article is on the migration roadmap. Its original notes will be
-                reviewed and moved into the new reusable guide layout.
-            </p>
+      <h1>{guide.label}</h1>
 
-            <Link to="/guides/basic-walls">
-                Read the completed sample guide
-            </Link>
-        </section>
-    )
+      <p>
+        This article is on the roadmap. As soon as free time comes around, Ill
+        try get it done <span style={{ fontSize: 40 }}>🧙</span>
+      </p>
+    </section>
+  );
 }
 
-export default ComingSoonPage
+export default ComingSoonPage;

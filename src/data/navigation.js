@@ -1,108 +1,112 @@
 const navigationGroups = [
   {
-    label: 'Mapping basics',
+    label: "Mapping basics",
     items: [
       {
-        label: 'Floors, walls and half walls',
-        to: '/guides/basic-walls',
+        label: "Floors, walls and half walls",
+        to: "/guides/basic-walls",
       },
       {
-        label: 'Interface and controls',
-        to: '/guides/interface',
+        label: "Interface and controls",
+        to: "/guides/interface",
       },
       {
-        label: 'Transparent textures',
-        to: '/guides/Transparant-Texture',
+        label: "Transparent textures",
+        to: "/guides/Transparant-Texture",
       },
       {
-        label: 'Cut and paste',
-        to: '/guides/cut-paste',
+        label: "Cut and paste",
+        to: "/guides/cut-paste",
       },
       {
-        label: 'Additive load',
-        to: '/guides/additive-load',
+        label: "Additive load",
+        to: "/guides/additive-load",
       },
       {
-        label: 'Copying stacks',
-        to: '/guides/copying-stacks',
+        label: "Copying stacks",
+        to: "/guides/copying-stacks",
       },
       {
-        label: 'Placing textured blocks',
-        to: '/guides/textured-blocks',
+        label: "Placing textured blocks",
+        to: "/guides/textured-blocks",
       },
       {
-        label: 'Testing maps',
-        to: '/guides/testing-maps',
+        label: "Testing maps",
+        to: "/guides/testing-maps",
       },
     ],
   },
   {
-    label: 'Advanced guides',
+    label: "Advanced guides",
     items: [
       {
-        label: 'Wall setters',
-        to: '/guides/wall-setters',
+        label: "Wall setters",
+        to: "/guides/wall-setters",
       },
       {
-        label: 'Wall towers',
-        to: '/guides/wall-towers',
+        label: "Wall towers",
+        to: "/guides/wall-towers",
       },
       {
-        label: 'Elevators',
-        to: '/guides/elevator',
+        label: "Elevators",
+        to: "/guides/elevator",
       },
       {
-        label: 'Minecarts',
-        to: '/guides/minecarts',
+        label: "Minecarts",
+        to: "/guides/minecarts",
       },
       {
-        label: 'Barrel rides',
-        to: '/guides/barrel-rides',
+        label: "Barrel rides",
+        to: "/guides/barrel-rides",
       },
       {
-        label: 'Wall swapping',
-        to: '/guides/wall-swapping',
+        label: "Wall swapping",
+        to: "/guides/wall-swapping",
       },
       {
-        label: 'Teleports',
-        to: '/guides/teleports',
+        label: "Teleports",
+        to: "/guides/teleports",
       },
       {
-        label: 'Massive movers',
-        to: '/guides/massive-movers',
+        label: "Scripting!",
+        to: "/guides/scripting",
       },
       {
-        label: 'Massive destroyer',
-        to: '/guides/massive-destroyer',
+        label: "Massive movers",
+        to: "/guides/massive-movers",
+      },
+      {
+        label: "Massive destroyer",
+        to: "/guides/massive-destroyer",
       },
     ],
   },
   {
-  label: 'Actors',
-  items: [
-    {
-      label: 'Actor reference',
-      to: '/actors',
-    },
-  ],
-},
-  {
-    label: 'Resources and about',
+    label: "Actors",
     items: [
       {
-        label: 'Resources',
-        to: '/resources',
-      },
-      {
-        label: 'Contribute',
-        to: '/contribute',
-      },
-      {
-        label: 'Credits',
-        to: '/credits',
+        label: "Actor reference",
+        to: "/actors",
       },
     ],
   },
-]
+  {
+    label: "Resources and about",
+    items: [
+      {
+        label: "Resources",
+        to: "/resources",
+      },
+      {
+        label: "Contribute",
+        to: "/contribute",
+      },
+      {
+        label: "Credits",
+        to: "/credits",
+      },
+    ],
+  },
+];
 
-export default navigationGroups
+export default navigationGroups;
