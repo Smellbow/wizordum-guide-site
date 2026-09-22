@@ -16,8 +16,8 @@
 
   .script-command-list code,
   .position-origin-list code,
-  #position-format > p code {
-    color: var(--color-accent-strong);
+  #position-format>p code {
+
     font-weight: 700;
     overflow-wrap: anywhere;
   }
@@ -28,7 +28,7 @@
     margin: 0;
   }
 
-  .position-origin-list > div {
+  .position-origin-list>div {
     padding: var(--space-4);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
