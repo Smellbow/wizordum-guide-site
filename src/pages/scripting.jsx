@@ -1,3 +1,4 @@
+import { useState } from "react";
 import GuideHeader from "../components/article/GuideHeader";
 import GuideNote from "../components/article/GuideNote";
 import OnThisPage from "../components/article/OnThisPage";
@@ -72,12 +73,163 @@ const positionOrigins = [
   },
 ];
 
+const pickupIds = [
+  [0, "Health Shard"],
+  [1, "Greater Health Potion"],
+  [2, "Berries"],
+  [29, "Minor Health Potion"],
+  [48, "Snowberries"],
+  [41, "Raw Mana"],
+  [3, "Armor Shard"],
+  [55, "Armor Cap"],
+  [28, "Breastplate Armor"],
+  [25, "Minor Fire Essence"],
+  [4, "Fire Essence"],
+  [33, "Arcane Rocks"],
+  [26, "Ice Shard"],
+  [5, "Ice Shards"],
+  [56, "Pyroblast Scroll"],
+  [16, "Storm Vial"],
+  [58, "Sylvan Essence"],
+  [64, "Chaos Mana"],
+  [7, "Blood Sigil"],
+  [6, "Magic Orb"],
+  [42, "Divine Shard"],
+  [76, "Spell Shard"],
+  [8, "Bronze Coins"],
+  [9, "Silver Coins"],
+  [10, "Gold Coins"],
+  [11, "Gold Chalice"],
+  [12, "Treasure Box"],
+  [60, "Pile of Gems"],
+  [23, "Coin Purse"],
+  [37, "Treasure Pile"],
+  [13, "Fire Rings"],
+  [32, "Spellstriker"],
+  [14, "Frostweaver"],
+  [18, "Storm Gauntlets"],
+  [27, "Crossbow"],
+  [40, "Pyroblast"],
+  [59, "Staff of Chaos"],
+  [15, "Grimoire"],
+  [17, "Cloak of Invisibility"],
+  [19, "Health Elixir"],
+  [45, "Scroll - Repulsion"],
+  [34, "Scroll of Hellfire"],
+  [53, "Scroll - Holy Nova"],
+  [46, "Wizard's Wrath"],
+  [43, "Fire Shield"],
+  [44, "Stone Skin Elixir"],
+  [49, "Haste Elixir"],
+  [57, "Poison Vial"],
+  [20, "Bronze Key"],
+  [21, "Silver Key"],
+  [22, "Gold Key"],
+  [35, "Treasure Key"],
+  [30, "Silver Skull"],
+  [31, "Golden Skull"],
+  [61, "Green Gem"],
+  [62, "Red Gem"],
+  [63, "Blue Gem"],
+  [24, "Magic Map"],
+  [68, "Magic Torch"],
+  [36, "Seer's Orb"],
+  [38, "Pigleton"],
+  [39, "EGA Treasure Chest"],
+  [47, "Candy"],
+  [70, "Harp"],
+  [75, "Dragonbreath Elixir"],
+];
+
+const soundIds = [
+  [0, "Wall Collapse"],
+  [1, "Earthquake (5s)"],
+  [2, "Water Start Running"],
+  [3, "Bell"],
+  [4, "Explosion"],
+  [5, "Platform Hits Ground"],
+  [6, "Evil Spirits Banished"],
+  [7, "Blood Splash"],
+  [8, "Goblin Taunt"],
+  [9, "Ogre Annoyed"],
+  [10, "Stone Hit"],
+  [11, "Rune Activation"],
+  [12, "Goblin Annoyed"],
+  [13, "Lightning"],
+  [14, "Stone Break Big"],
+  [15, "Stone Break Small"],
+  [16, "Stone Hit Ground"],
+  [17, "Arcane Effect"],
+  [18, "Meteor Impact"],
+  [19, "Cultist"],
+  [20, "Cultist Argh"],
+  [21, "Pigglet Speak"],
+  [22, "Coins"],
+];
+
+const weatherTypes = [
+  "rain",
+  "rainHeavy",
+  "stormy",
+  "heavyStorm",
+  "snow",
+  "fall",
+  "forest",
+  "ash",
+  "dust",
+  "interiorStorm",
+];
+
 const pageSections = [
   { id: "commands", label: "Script commands" },
   { id: "position-format", label: "Position format" },
   { id: "basic-setup", label: "Basic setup" },
-  { id: "script-params", label: "Script Params" },
+  { id: "script-params", label: "Command values" },
 ];
+
+function IdReferenceList({ items, name, searchId }) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const normalizedSearch = searchTerm.trim().toLowerCase();
+  const filteredItems = items.filter(([id, label]) =>
+    `${id} ${label}`.toLowerCase().includes(normalizedSearch),
+  );
+
+  return (
+    <div className="script-reference-browser">
+      <div className="script-reference-search">
+        <label htmlFor={searchId}>Search {name}s</label>
+        <input
+          id={searchId}
+          type="search"
+          value={searchTerm}
+          placeholder={`Search by ${name} name or ID`}
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+      </div>
+
+      <p className="script-reference-count" aria-live="polite">
+        {filteredItems.length === 1
+          ? `1 ${name} found`
+          : `${filteredItems.length} ${name}s found`}
+      </p>
+
+      {filteredItems.length > 0 ? (
+        <ul className="script-value-list" aria-label={`${name} IDs`}>
+          {filteredItems.map(([id, label]) => (
+            <li key={id}>
+              <code>{id}</code>
+              <span>{label}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="script-reference-empty">
+          No {name}s match “{searchTerm}”.
+        </p>
+      )}
+    </div>
+  );
+}
 
 function Scripting() {
   useDocumentTitle("Scripting");
@@ -191,11 +343,48 @@ function Scripting() {
         />
       </section>
       <section id="script-params">
-        <p>Coming when I have time!</p>
+        <h2>Command values</h2>
+
         <p>
-          Will add a list of params and what they link to like ambients/skys
-          etc...
+          Some commands require a numeric ID or one of a fixed set of values.
+          Use the references below when filling in those command placeholders.
         </p>
+
+        <h3>Pickup IDs</h3>
+
+        <p>
+          Use these IDs with commands such as <code>give</code> and
+          <code>spawn pickup</code>.
+        </p>
+
+        <IdReferenceList
+          items={pickupIds}
+          name="pickup"
+          searchId="pickup-search"
+        />
+
+        <h3>Sound IDs</h3>
+
+        <IdReferenceList
+          items={soundIds}
+          name="sound"
+          searchId="sound-search"
+        />
+
+        <h3>Weather types</h3>
+
+        <p>
+          Use one of these exact, case-sensitive values with the
+          <code>weather</code> command.
+        </p>
+
+        <ul className="script-weather-list" aria-label="Weather types">
+          {weatherTypes.map((weather) => (
+            <li key={weather}>
+              <code>{weather}</code>
+            </li>
+          ))}
+        </ul>
       </section>
     </article>
   );

@@ -1,3 +1,5 @@
+I had AI write this because it does a good job on readmes and who likes writing readmes, not me...
+
 # Wizordum Mapping Guide
 
 A responsive community guide for the Wizordum map editor, built with Vite,
@@ -59,7 +61,7 @@ The route below contains a dynamic parameter:
 For `#/guides/teleports`, React Router makes `guideSlug` available through:
 
 ```jsx
-const { guideSlug } = useParams()
+const { guideSlug } = useParams();
 ```
 
 Explicit guide routes take priority over the generic coming-soon route.
@@ -126,13 +128,13 @@ Use consistent filename, component, import, and export names. Page filenames
 use PascalCase, such as `ExamplePage.jsx`, and the file ends with:
 
 ```jsx
-export default ExamplePage
+export default ExamplePage;
 ```
 
 A standard guide begins with:
 
 ```jsx
-import publicAsset from '../utils/publicAsset'
+import publicAsset from "../utils/publicAsset";
 
 <GuideHeader
   category="Mapping basics"
@@ -140,8 +142,8 @@ import publicAsset from '../utils/publicAsset'
   summary="A concise description of what the reader will learn."
   author="Author name"
   published="2026-07-16"
-  avatar={publicAsset('avatars/author-name.png')}
-/>
+  avatar={publicAsset("avatars/author-name.png")}
+/>;
 ```
 
 If `avatar` is omitted, `GuideHeader` displays the author’s first initial.
@@ -161,19 +163,19 @@ leading slash from the supplied path and prefixes it with Vite's
 `import.meta.env.BASE_URL`:
 
 ```jsx
-import publicAsset from '../utils/publicAsset'
+import publicAsset from "../utils/publicAsset";
 
 <GuideImage
-  src={publicAsset('guides/basic-walls/wall-types.png')}
+  src={publicAsset("guides/basic-walls/wall-types.png")}
   alt="The wall types available in the editor"
   caption="Wall pieces available from the block selection menu."
-/>
+/>;
 ```
 
 This is also required for other public assets, such as author avatars:
 
 ```jsx
-<GuideHeader avatar={publicAsset('avatars/author-name.png')} />
+<GuideHeader avatar={publicAsset("avatars/author-name.png")} />
 ```
 
 Vite sets `BASE_URL` from the `base` option in `vite.config.js`. The production
@@ -190,7 +192,7 @@ remains responsive and centred, so it will still shrink on narrow screens:
 
 ```jsx
 <GuideImage
-  src={publicAsset('guides/interface/layer-controls.png')}
+  src={publicAsset("guides/interface/layer-controls.png")}
   alt="The layer controls in the editor interface"
   caption="Layer controls."
   maxWidth="28rem"
@@ -281,10 +283,10 @@ arrays represent alternatives:
 
 ```js
 // Left Shift + Q
-keyGroups: [['Left Shift', 'Q']]
+keyGroups: [["Left Shift", "Q"]];
 
 // Numpad Enter or F1
-keyGroups: [['Numpad Enter'], ['F1']]
+keyGroups: [["Numpad Enter"], ["F1"]];
 ```
 
 `searchTerms` contains useful synonyms that should find the shortcut without
@@ -361,7 +363,7 @@ Dark-theme semantic tokens are defined on `:root`. Light-theme values override
 them through:
 
 ```css
-:root[data-theme='light']
+:root[data-theme='light'];
 ```
 
 `useTheme` checks local storage for a saved choice, falls back to the operating

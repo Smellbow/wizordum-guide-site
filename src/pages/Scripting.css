@@ -49,8 +49,92 @@
     color: var(--color-text-muted);
   }
 
+  .script-value-list,
+  .script-weather-list {
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .script-reference-browser {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .script-reference-search {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .script-reference-search label {
+    font-weight: 800;
+  }
+
+  .script-reference-search input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font: inherit;
+  }
+
+  .script-reference-search input:focus-visible {
+    border-color: var(--color-focus);
+  }
+
+  .script-reference-count {
+    color: var(--color-text-muted);
+  }
+
+  .script-reference-empty {
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-medium);
+    color: var(--color-text-muted);
+  }
+
+  .script-value-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .script-value-list li {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+  }
+
+  .script-value-list code {
+    color: var(--color-accent);
+    font-weight: 800;
+  }
+
+  .script-weather-list {
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+
+  .script-weather-list li {
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+  }
+
+  .script-weather-list code,
+  #script-params > p code {
+    font-weight: 700;
+  }
+
   @media (max-width: 42rem) {
-    .script-command-list {
+    .script-command-list,
+    .script-value-list {
       grid-template-columns: 1fr;
     }
   }
