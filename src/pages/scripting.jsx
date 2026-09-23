@@ -349,11 +349,16 @@ function Scripting() {
           Some commands require a numeric ID or one of a fixed set of values.
           Use the references below when filling in those command placeholders.
         </p>
-
+        <h3>Actor IDs</h3>
+        <p>
+          Trigger an actor by using its ID found in the highlighted actors
+          details in the lower left of the editor view.
+          <code>activate 0E</code>.
+        </p>
         <h3>Pickup IDs</h3>
 
         <p>
-          Use these IDs with commands such as <code>give</code> and
+          Use these IDs with commands such as <code>give</code> and{" "}
           <code>spawn pickup</code>.
         </p>
 
