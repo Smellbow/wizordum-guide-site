@@ -3,6 +3,8 @@ import GuideNote from "../components/article/GuideNote";
 import OnThisPage from "../components/article/OnThisPage";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import publicAsset from "../utils/publicAsset";
+import Key from "../components/article/Key";
+import GuideImage from "../components/article/GuideImage";
 import "./GuidePage.css";
 import "./Scripting.css";
 
@@ -73,6 +75,8 @@ const positionOrigins = [
 const pageSections = [
   { id: "commands", label: "Script commands" },
   { id: "position-format", label: "Position format" },
+  { id: "basic-setup", label: "Basic setup" },
+  { id: "script-params", label: "Script Params" },
 ];
 
 function Scripting() {
@@ -84,7 +88,7 @@ function Scripting() {
         avatar={publicAsset("avatars/smellbow.png")}
         category="Advanced"
         title="Game scripts"
-        summary="A quick reference for the commands and position formats available to Game Script actors."
+        summary="Time to get all 1337 H4x0r in here 💻"
         author="Smellbow"
         published="2026-09-22"
       />
@@ -140,6 +144,58 @@ function Scripting() {
             </div>
           ))}
         </dl>
+      </section>
+      <section id="basic-setup">
+        <h2>Basic Setup</h2>
+
+        <p>
+          A new actor "Game Script" is placed in the map. Its location can
+          impact how a script operates depending on your script design.
+        </p>
+        <p>
+          A script is triggered like most other actors. Connect a triggering
+          event to it, such as a player trigger, to start the script.
+        </p>
+        <GuideImage
+          src={publicAsset("guides/scripting/script1.png")}
+          alt="A Player Trigger connected directly to a Game Script actor set to script 0"
+          caption="A basic connection that starts script 0 when the player enters the trigger area."
+        />
+        <p>
+          The script actor has one parameter you can adjust with <Key>X</Key>.
+          This sets the script ID number. This goes up to 100! Each script is
+          numbered in the script editor window. Match the actor parameter with
+          the script ID.
+        </p>
+        <GuideImage
+          src={publicAsset("guides/scripting/script2.png")}
+          alt="The script editor button highlighted in the top toolbar"
+          caption="Select the highlighted button in the top toolbar to open the script editor."
+          maxWidth="20rem"
+        />
+        <p>
+          As shown below, in the script editor window we can set the script ID
+          to match that of the actor, That script will be what runs when that
+          actor is triggered.
+        </p>
+        <GuideNote title="Loooops">
+          <p>
+            Script actors can be de-activated with the deactivator actor, So if
+            you use a repeat command without a count value, you can stop it!
+          </p>
+        </GuideNote>
+        <GuideImage
+          src={publicAsset("guides/scripting/script3.png")}
+          alt="The script editor window showing the script ID matching the actor ID"
+          caption="Match the ID to the actor"
+        />
+      </section>
+      <section id="script-params">
+        <p>Coming when I have time!</p>
+        <p>
+          Will add a list of params and what they link to like ambients/skys
+          etc...
+        </p>
       </section>
     </article>
   );

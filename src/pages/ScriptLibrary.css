@@ -1,0 +1,46 @@
+@layer components {
+  .script-library-list {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .script-library-search {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .script-library-search label {
+    font-weight: 800;
+  }
+
+  .script-library-search input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font: inherit;
+  }
+
+  .script-library-search input:focus-visible {
+    border-color: var(--color-focus);
+  }
+
+  .script-result-count {
+    color: var(--color-text-muted);
+  }
+
+  .script-library-empty {
+    padding: var(--space-6);
+    background: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-large);
+    text-align: center;
+  }
+
+  .script-library-empty p {
+    margin: var(--space-3) auto 0;
+    color: var(--color-text-muted);
+  }
+}
