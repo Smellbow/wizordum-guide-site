@@ -1,0 +1,110 @@
+@layer components {
+  .mod-code-block {
+    max-width: 100%;
+    margin: 0;
+    padding: var(--space-4);
+    overflow-x: auto;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    white-space: pre;
+  }
+
+  .mod-code-block--large {
+    max-height: 34rem;
+  }
+
+  .mod-code-block--error {
+    border-color: var(--color-warning);
+  }
+
+  .mod-concept-list {
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .mod-concept-list li {
+    display: grid;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-inline-start: 0.3rem solid var(--color-accent);
+    border-radius: var(--radius-medium);
+  }
+
+  .mod-concept-list span,
+  .mod-rule-grid p {
+    color: var(--color-text-muted);
+  }
+
+  .mod-concept-list code,
+  .mod-rule-grid code,
+  .mod-checklist code {
+    font-weight: 700;
+  }
+
+  .mod-rule-grid,
+  .mod-comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+
+  .mod-rule-grid article {
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+  }
+
+  .mod-rule-grid h3,
+  .mod-comparison-grid h3 {
+    margin: 0 !important;
+    font-size: 1.25rem;
+  }
+
+  .mod-comparison-grid article {
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+  }
+
+  .mod-checklist {
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .mod-checklist li {
+    position: relative;
+    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-7);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+  }
+
+  .mod-checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: var(--space-4);
+    color: var(--color-accent);
+    font-weight: 900;
+  }
+
+  .lore-scroll-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 42rem) {
+    .mod-rule-grid,
+    .mod-comparison-grid,
+    .lore-scroll-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

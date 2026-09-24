@@ -6,12 +6,48 @@
   }
 
   .script-command-list li {
-    display: flex;
     min-width: 0;
     padding: var(--space-3) var(--space-4);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-medium);
+  }
+
+  .script-command-details {
+    width: 100%;
+  }
+
+  .script-command-details summary {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .script-command-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .script-command-details summary > span {
+    flex: none;
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+
+  .script-command-details summary > span::after {
+    content: " +";
+  }
+
+  .script-command-details[open] summary > span::after {
+    content: " −";
+  }
+
+  .script-command-details p {
+    margin-top: var(--space-3);
+    color: var(--color-text-muted);
   }
 
   .script-command-list code,

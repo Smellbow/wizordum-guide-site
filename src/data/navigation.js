@@ -76,6 +76,10 @@ const navigationGroups = [
         to: "/guides/script-library",
       },
       {
+        label: "Mod scripting",
+        to: "/guides/mod-scripting",
+      },
+      {
         label: "Massive movers",
         to: "/guides/massive-movers",
       },

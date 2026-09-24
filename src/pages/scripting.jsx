@@ -41,6 +41,15 @@ const commands = [
   "spawn particles <id> <position> <amount> <spread>",
 ];
 
+// Add an entry here when a command needs an expandable explanation.
+// The key must exactly match its text in the commands array above.
+const commandDescriptions = {
+  repeat:
+    "Repeats the script continuously. Deactivate the Game Script actor to stop it.",
+  "repeat <number of repeats>":
+    "Repeats the script the specified number of times, then allows it to finish.",
+};
+
 const positionOrigins = [
   {
     format: "[x,y,z]",
@@ -263,11 +272,25 @@ function Scripting() {
         </p>
 
         <ul className="script-command-list" aria-label="Game Script commands">
-          {commands.map((command) => (
-            <li key={command}>
-              <code>{command}</code>
-            </li>
-          ))}
+          {commands.map((command) => {
+            const description = commandDescriptions[command];
+
+            return (
+              <li key={command}>
+                {description ? (
+                  <details className="script-command-details">
+                    <summary>
+                      <code>{command}</code>
+                      <span>What it does</span>
+                    </summary>
+                    <p>{description}</p>
+                  </details>
+                ) : (
+                  <code>{command}</code>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </section>
 

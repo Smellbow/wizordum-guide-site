@@ -24,6 +24,7 @@ import Elevator from "./pages/Elevator";
 import WallSwap from "./pages/Wallswap";
 import Scripting from "./pages/scripting";
 import ScriptLibrary from "./pages/ScriptLibrary";
+import ModScripts from "./pages/ModScripts";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
         <Route path="actors" element={<ActorsPage />} />
         <Route path="/guides/scripting" element={<Scripting />} />
         <Route path="/guides/script-library" element={<ScriptLibrary />} />
+        <Route path="/guides/mod-scripting" element={<ModScripts />} />
 
         <Route path="guides/:guideSlug" element={<ComingSoonPage />} />
         <Route path="guide-template" element={<GuideTemplatePage />} />
